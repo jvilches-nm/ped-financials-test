@@ -7,7 +7,7 @@
   elements:
   - title: Expenditures by Fund Category and Program
     name: Expenditures by Fund Category and Program
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_program_hierarchy.program_name, actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -82,7 +82,7 @@
     height: 2
   - title: Federal Fund Expenditures by Program and Object Category
     name: Federal Fund Expenditures by Program and Object Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_object_hierarchy.object_group, actuals_line.amount, coa_program_hierarchy.program_name]
@@ -142,7 +142,7 @@
     height: 9
   - title: General Fund Expenditures by Program and Object Category
     name: General Fund Expenditures by Program and Object Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_object_hierarchy.object_group, actuals_line.amount, coa_program_hierarchy.program_name]
@@ -223,7 +223,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name
@@ -237,7 +237,7 @@
       type: dropdown_menu
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: [Fiscal Year, 'Select Fund Name:']
     field: stars_locations.district_name

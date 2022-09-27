@@ -7,7 +7,7 @@
   elements:
   - title: Spending
     name: Spending
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount]
@@ -33,7 +33,7 @@
     height: 2
   - title: Students by Location Type
     name: Students by Location Type
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_pie
     fields: [stars_locations.student_pop, stars_locations.location_type_name]
@@ -102,7 +102,7 @@
     height: 8
   - title: Students
     name: Students
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_locations.student_pop]
@@ -127,7 +127,7 @@
     height: 2
   - title: District Schools
     name: District Schools
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_locations.count]
@@ -191,7 +191,7 @@
     height: 2
   - title: State Charters
     name: State Charters
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_districts.count]
@@ -217,7 +217,7 @@
     height: 2
   - title: Local Charters
     name: Local Charters
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_locations.count]
@@ -244,7 +244,7 @@
     height: 2
   - title: State Districts
     name: State Districts
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_districts.count]
@@ -300,7 +300,7 @@
     height: 2
   - title: RECs
     name: RECs
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: budget_line
     type: single_value
     fields: [entity_year.count_distinct_parent]
@@ -363,7 +363,7 @@
     height: 2
   - title: Students by Grade
     name: Students by Grade
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_column
     fields: [stars_locations.pk_pop, stars_locations.kf_pop, stars_locations.g1_pop,
@@ -445,7 +445,7 @@
   - name: Districts
     title: Districts
     merged_queries:
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: stars_locations
       type: table
       fields: [stars_districts.location_year, stars_districts.district_name, stars_districts.district_size,
@@ -456,7 +456,7 @@
       sorts: [stars_districts.district_name]
       limit: 500
       join_fields: []
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_line
       type: table
       fields: [stars_districts.district_name, budget_year.year_name, actuals_line.amount]
@@ -470,7 +470,7 @@
         source_field_name: stars_districts.district_name
       - field_name: budget_year.year_name
         source_field_name: stars_districts.location_year
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_revenue_line
       type: table
       fields: [actuals_revenue_line.amount, stars_districts.district_name, budget_year.year_name]
@@ -543,7 +543,7 @@
   - name: Charter Schools
     title: Charter Schools
     merged_queries:
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: stars_locations
       type: table
       fields: [stars_districts.location_year, stars_locations.School_name_plain, stars_locations.student_pop,
@@ -553,7 +553,7 @@
       sorts: [stars_locations.student_pop desc]
       limit: 500
       join_fields: []
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_line
       type: table
       fields: [budget_year.year_name, actuals_line.amount, stars_locations.School_name_plain]
@@ -566,7 +566,7 @@
         source_field_name: stars_districts.location_year
       - field_name: stars_locations.School_name_plain
         source_field_name: stars_locations.School_name_plain
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_revenue_line
       type: table
       fields: [actuals_revenue_line.amount, budget_year.year_name, stars_locations.School_name_plain]
@@ -672,7 +672,7 @@
         measure: true
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: stars_locations
         suggest_dimension: stars_locations.student_pop
         suggest_explore: stars_locations
@@ -681,10 +681,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=309"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Fstars_locations.view.lkml?line=309"
         permanent: true
         source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_dev/views/stars_locations.view.lkml
         sql: "${TABLE}.student_pop "
         sql_case:
         filters:
@@ -727,7 +727,7 @@
         measure: true
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: actuals_line
         suggest_dimension: actuals_line.amount
         suggest_explore: actuals_line
@@ -736,10 +736,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Factuals_line.view.lkml?line=10"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Factuals_line.view.lkml?line=10"
         permanent: true
         source_file: views/actuals_line.view.lkml
-        source_file_path: ped_public_financials_test/views/actuals_line.view.lkml
+        source_file_path: ped_public_financials_dev/views/actuals_line.view.lkml
         sql: "${TABLE}.Amount "
         sql_case:
         filters:
@@ -782,7 +782,7 @@
         measure: true
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: actuals_revenue_line
         suggest_dimension: actuals_revenue_line.amount
         suggest_explore: actuals_revenue_line
@@ -791,10 +791,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Factuals_revenue_line.view.lkml?line=10"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Factuals_revenue_line.view.lkml?line=10"
         permanent: true
         source_file: views/actuals_revenue_line.view.lkml
-        source_file_path: ped_public_financials_test/views/actuals_revenue_line.view.lkml
+        source_file_path: ped_public_financials_dev/views/actuals_revenue_line.view.lkml
         sql: "${TABLE}.Amount "
         sql_case:
         filters:
@@ -838,7 +838,7 @@
         measure: false
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: stars_districts
         suggest_dimension: stars_districts.location_year
         suggest_explore: stars_locations
@@ -847,10 +847,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_districts.view.lkml?line=130"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Fstars_districts.view.lkml?line=130"
         permanent: true
         source_file: views/stars_districts.view.lkml
-        source_file_path: ped_public_financials_test/views/stars_districts.view.lkml
+        source_file_path: ped_public_financials_dev/views/stars_districts.view.lkml
         sql: "${TABLE}.location_year "
         sql_case:
         filters:
@@ -892,7 +892,7 @@
         measure: false
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: stars_locations
         suggest_dimension: stars_locations.School_name_plain
         suggest_explore: stars_locations
@@ -901,10 +901,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=146"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Fstars_locations.view.lkml?line=146"
         permanent: true
         source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_dev/views/stars_locations.view.lkml
         sql: "${TABLE}.location_name "
         sql_case:
         filters:
@@ -949,7 +949,7 @@
         measure: false
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: stars_locations
         suggest_dimension: stars_locations.location_type_name
         suggest_explore: stars_locations
@@ -958,10 +958,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=233"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Fstars_locations.view.lkml?line=233"
         permanent: true
         source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_dev/views/stars_locations.view.lkml
         sql: |-
           case when ${district_type}='State District' and ${location_type}='Charter School' then 'Local Charter School'
                         when ${district_type}='State Charter' and ${location_type}='Charter School' then 'State Charter School'
@@ -1006,7 +1006,7 @@
     height: 2
   - title: Actual Revenue to Date
     name: Actual Revenue to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: single_value
     fields: [actuals_revenue_line.amount]
@@ -1044,7 +1044,7 @@
   - name: Revenue to Expenditures Comparison
     title: Revenue to Expenditures Comparison
     merged_queries:
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_revenue_line
       type: table
       fields: [budget_year.year_name, actuals_revenue_line.amount]
@@ -1054,7 +1054,7 @@
       sorts: [budget_year.year_name]
       limit: 500
       join_fields: []
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_line
       type: table
       fields: [budget_year.year_name, actuals_line.amount, actuals_line.encumbrance]
@@ -1131,7 +1131,7 @@
     height: 8
   - title: Actual Expenditures by Fund Category
     name: Actual Expenditures by Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_fund_hierarchy.fund_group, actuals_line.amount]
@@ -1185,7 +1185,7 @@
     height: 8
   - title: Actual Revenue by Fund Category
     name: Actual Revenue by Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: looker_bar
     fields: [coa_fund_hierarchy.fund_group, actuals_revenue_line.amount]
@@ -1240,7 +1240,7 @@
     height: 8
   - title: Actual Expenditures by Object and Fund Category
     name: Actual Expenditures by Object and Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_object_hierarchy.object_group, actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -1298,7 +1298,7 @@
     height: 8
   - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
     name: Actual Expenditures by Job and Fund Category for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_job_class.job_rollup_name, coa_fund_hierarchy.fund_group, actuals_line.amount]
@@ -1357,7 +1357,7 @@
     height: 8
   - title: Avg Instructional Spending per Student to Date
     name: Avg Instructional Spending per Student to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, budget_year.year_name, stars_districts.total_student_pop]
@@ -1415,7 +1415,7 @@
     height: 2
   - title: Avg Spending per Student to Date
     name: Avg Spending per Student to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_districts.total_student_pop]
@@ -1472,7 +1472,7 @@
     height: 2
   - title: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_program_hierarchy.program_name, coa_function_hierarchy.rollup_function_name]
@@ -1537,7 +1537,7 @@
     height: 8
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_pie
     fields: [coa_object_hierarchy.object_group, actuals_line.amount]
@@ -1596,7 +1596,7 @@
     height: 8
   - title: Actual Expenditures by Job for Salary/Compensation
     name: Actual Expenditures by Job for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_pie
     fields: [coa_job_class.job_rollup_name, actuals_line.amount]
@@ -1665,7 +1665,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name

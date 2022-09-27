@@ -7,7 +7,7 @@
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount]
@@ -36,7 +36,7 @@
     height: 4
   - title: Map
     name: Map
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_map
     fields: [stars_locations.map_location, stars_locations.student_pop, stars_locations.School_name,
@@ -87,7 +87,7 @@
     height: 9
   - title: Actual Expenditures by Object and Fund Category
     name: Actual Expenditures by Object and Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_object_hierarchy.object_group, actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -149,7 +149,7 @@
     height: 8
   - title: Students by Grade
     name: Students by Grade
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_column
     fields: [stars_locations.pk_pop, stars_locations.kf_pop, stars_locations.g1_pop,
@@ -219,7 +219,7 @@
     height: 7
   - title: School Data
     name: School Data
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_grid
     fields: [stars_districts.district_name, stars_locations.location_type_name, stars_locations.School_name_plain,
@@ -296,7 +296,7 @@
     height: 5
   - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
     name: Actual Expenditures by Job and Fund Category for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_job_class.job_rollup_name, actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -372,7 +372,7 @@
     height: 2
   - title: Actual Expenditures by Fund Category
     name: Actual Expenditures by Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -437,7 +437,7 @@
     height: 2
   - title: Actual Revenue to Date
     name: Actual Revenue to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: single_value
     fields: [actuals_revenue_line.amount]
@@ -466,7 +466,7 @@
     height: 4
   - title: Actual Revenue by Fund Category
     name: Actual Revenue by Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: looker_bar
     fields: [actuals_revenue_line.amount, coa_fund_hierarchy.fund_group]
@@ -545,7 +545,7 @@
     height: 3
   - title: Avg Spending per Student to Date
     name: Avg Spending per Student to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_locations.student_pop]
@@ -604,7 +604,7 @@
     height: 2
   - title: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [coa_program_hierarchy.program_name, actuals_line.amount, coa_function_hierarchy.rollup_function_name]
@@ -664,7 +664,7 @@
     height: 8
   - title: Avg Instructional Spending per Student to Date
     name: Avg Instructional Spending per Student to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_locations.student_pop]
@@ -724,7 +724,7 @@
     height: 2
   - title: Actual Expenditures by Job for Salary/Compensation
     name: Actual Expenditures by Job for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_pie
     fields: [coa_job_class.job_rollup_name, actuals_line.amount]
@@ -788,7 +788,7 @@
     height: 8
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_pie
     fields: [coa_object_hierarchy.object_group, actuals_line.amount]
@@ -864,7 +864,7 @@
       - District School
       - Local Charter School
       - State Charter School
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: []
     field: stars_locations.location_type_name
@@ -878,7 +878,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name
@@ -892,7 +892,7 @@
       type: dropdown_menu
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: [Fiscal Year, Location Type]
     field: stars_locations.School_name_plain

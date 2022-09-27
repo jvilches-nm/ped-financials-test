@@ -7,7 +7,7 @@
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount]
@@ -47,7 +47,7 @@
     height: 2
   - title: Actual Expenditures by Fund
     name: Actual Expenditures by Fund
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -98,7 +98,7 @@
     height: 8
   - title: Regional Education Cooperatives
     name: Regional Education Cooperatives
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: budget_line
     type: single_value
     fields: [entity_year.count_distinct_parent]
@@ -132,7 +132,7 @@
     height: 13
   - title: Actual Revenue to Date
     name: Actual Revenue to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: single_value
     fields: [actuals_revenue_line.amount]
@@ -158,7 +158,7 @@
     height: 2
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: looker_bar
     fields: [coa_fund_hierarchy.fund_group, actuals_revenue_line.amount]
@@ -227,7 +227,7 @@
     height: 5
   - title: REC Member Districts
     name: REC Member Districts
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_grid
     fields: [rec_member_districts.rec_name, stars_districts.district_name, stars_districts.district_size]
@@ -311,7 +311,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name
@@ -326,7 +326,7 @@
       display: inline
       options:
       - Regional Education Cooperative
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     listens_to_filters: []
     field: entity_year.parent_type
@@ -340,7 +340,7 @@
       type: dropdown_menu
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     listens_to_filters: []
     field: rec_names.rec_name

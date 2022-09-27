@@ -14,7 +14,7 @@
   elements:
   - title: Districts
     name: Districts
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_grid
     fields: [stars_districts.District_Custom_Map]
@@ -90,7 +90,7 @@
     height: 15
   - title: District Map
     name: District Map
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_map
     fields: [stars_districts.District_Custom_Map, actuals_line.amount, stars_districts.total_student_pop]
@@ -149,7 +149,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: []
     field: stars_locations.location_year

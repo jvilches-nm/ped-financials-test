@@ -7,7 +7,7 @@
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount]
@@ -37,7 +37,7 @@
     height: 2
   - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
     name: Actual Expenditures by Job and Fund Category for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_job_class.job_rollup_name, coa_fund_hierarchy.fund_group]
@@ -138,7 +138,7 @@
     height: 8
   - title: School Types and Levels
     name: School Types and Levels
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_grid
     fields: [stars_locations.count, stars_locations.location_type, stars_locations.school_level]
@@ -207,7 +207,7 @@
     height: 6
   - title: Schools
     name: Schools
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_map
     fields: [stars_locations.map_location, stars_locations.School_name, stars_locations.school_size_col,
@@ -261,7 +261,7 @@
     height: 8
   - title: District Schools
     name: District Schools
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_locations.count]
@@ -289,7 +289,7 @@
     height: 2
   - title: Actual Expenditures by Fund Category
     name: Actual Expenditures by Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_fund_hierarchy.fund_group]
@@ -361,7 +361,7 @@
     height: 10
   - title: Students by Grade
     name: Students by Grade
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_column
     fields: [stars_locations.pk_pop, stars_locations.kf_pop, stars_locations.g1_pop,
@@ -435,7 +435,7 @@
     height: 7
   - title: Local Charters
     name: Local Charters
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_locations.count]
@@ -496,7 +496,7 @@
     height: 4
   - title: Students
     name: Students
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_locations.student_pop]
@@ -542,7 +542,7 @@
     title: School List
     title_hidden: true
     merged_queries:
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: stars_locations
       type: table
       fields: [stars_locations.School_name_plain, stars_locations.location_type, stars_locations.school_level,
@@ -552,7 +552,7 @@
       sorts: [stars_locations.School_name_plain]
       limit: 500
       join_fields: []
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_line
       type: table
       fields: [actuals_line.amount, stars_locations.School_name_plain]
@@ -561,7 +561,7 @@
       join_fields:
       - field_name: stars_locations.School_name_plain
         source_field_name: stars_locations.School_name_plain
-    - model: ped_public_financials_test
+    - model: ped_public_financials_dev
       explore: actuals_revenue_line
       type: table
       fields: [actuals_revenue_line.amount, stars_locations.School_name_plain]
@@ -636,7 +636,7 @@
     height: 6
   - title: Actual Expenditures by Object and Fund Category
     name: Actual Expenditures by Object and Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_object_hierarchy.object_group, coa_fund_hierarchy.fund_group]
@@ -746,7 +746,7 @@
     height: 8
   - title: Untitled
     name: Untitled
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: single_value
     fields: [stars_districts.charter_student_pop]
@@ -772,7 +772,7 @@
     height: 4
   - title: Actual Revenue to Date
     name: Actual Revenue to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: single_value
     fields: [actuals_revenue_line.amount]
@@ -801,7 +801,7 @@
     height: 2
   - title: Actual Revenue by Fund Category
     name: Actual Revenue by Fund Category
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     type: looker_bar
     fields: [actuals_revenue_line.amount, coa_fund_hierarchy.fund_group]
@@ -884,7 +884,7 @@
     height: 3
   - title: Avg Spending per District Student to Date
     name: Avg Spending per District Student to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_districts.public_student_pop]
@@ -944,7 +944,7 @@
     height: 2
   - title: Avg Instructional Spending per District Student to Date
     name: Avg Instructional Spending per District Student to Date
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_districts.public_student_pop]
@@ -1005,7 +1005,7 @@
     height: 2
   - title: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_program_hierarchy.program_name, coa_function_hierarchy.rollup_function_name]
@@ -1065,7 +1065,7 @@
     height: 7
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_pie
     fields: [actuals_line.amount, coa_object_hierarchy.object_group]
@@ -1173,7 +1173,7 @@
     height: 8
   - title: Actual Expenditures by Job for Salary/Compensation
     name: Actual Expenditures by Job for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_line
     type: looker_pie
     fields: [actuals_line.amount, coa_job_class.job_rollup_name]
@@ -1283,7 +1283,7 @@
       display: inline
       options:
       - State District
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: []
     field: stars_districts.district_type
@@ -1297,7 +1297,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name
@@ -1311,7 +1311,7 @@
       type: tag_list
       display: popover
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: [District Type]
     field: stars_locations.district_name

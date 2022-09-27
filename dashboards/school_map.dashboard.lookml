@@ -5,7 +5,7 @@
   elements:
   - title: Schools
     name: Schools
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_map
     fields: [stars_locations.map_location, stars_locations.School_name, stars_locations.location_type_col,
@@ -58,7 +58,7 @@
     height: 13
   - title: Schools
     name: Schools (2)
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     type: looker_grid
     fields: [stars_locations.School_name_plain, stars_locations.location_type_name]
@@ -164,7 +164,7 @@
         measure: false
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: stars_locations
         suggest_dimension: stars_locations.School_name_plain
         suggest_explore: stars_locations
@@ -173,10 +173,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=146"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Fstars_locations.view.lkml?line=146"
         permanent:
         source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_dev/views/stars_locations.view.lkml
         sql: "${TABLE}.location_name "
         sql_case:
         filters:
@@ -221,7 +221,7 @@
         measure: false
         parameter: false
         primary_key: false
-        project_name: ped_public_financials_test
+        project_name: ped_public_financials_dev
         scope: stars_locations
         suggest_dimension: stars_locations.location_type_name
         suggest_explore: stars_locations
@@ -230,10 +230,10 @@
         is_timeframe: false
         can_time_filter: false
         time_interval:
-        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=233"
+        lookml_link: "/projects/ped_public_financials_dev/files/views%2Fstars_locations.view.lkml?line=233"
         permanent:
         source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_dev/views/stars_locations.view.lkml
         sql: |-
           case when ${district_type}='State District' and ${location_type}='Charter School' then 'Local Charter School'
                         when ${district_type}='State Charter' and ${location_type}='Charter School' then 'State Charter School'
@@ -274,7 +274,7 @@
       type: button_toggles
       display: inline
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: []
     field: stars_locations.location_year
@@ -291,7 +291,7 @@
       - District School
       - Local Charter School
       - State Charter School
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: []
     field: stars_locations.location_type_name
@@ -305,7 +305,7 @@
       type: tag_list
       display: popover
       options: []
-    model: ped_public_financials_test
+    model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: []
     field: stars_locations.district_name
