@@ -1,5 +1,5 @@
 - dashboard: state
-  title: State Dashboard
+  title: State Dashboard NEW TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
