@@ -121,7 +121,7 @@ explore: actuals_line {
   join: budget_year {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${actuals_budget_period.fk_budget_year}.fk_budget_year}=${budget_year.pk_budget_year} ;;
+    sql_on: ${actuals_budget_period.fk_budget_year}=${budget_year.pk_budget_year} ;;
   }
   join: stars_locations {
     relationship: many_to_one
@@ -178,7 +178,7 @@ explore: budget_revenue_line {
   join: budget_year {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${budget_fund.fk_budget_year}.fk_budget_year}=${budget_year.pk_budget_year} ;;
+    sql_on: ${budget_fund.fk_budget_year}=${budget_year.pk_budget_year} ;;
   }
   join: stars_locations {
     relationship: many_to_one
