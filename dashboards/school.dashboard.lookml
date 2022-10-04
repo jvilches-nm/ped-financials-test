@@ -541,6 +541,7 @@
       ###The latest fiscal year data shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
       ###Starting 2022-2023, District School Approved Actual data Year to Date will be displayed.
+
       ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
     col: 0
