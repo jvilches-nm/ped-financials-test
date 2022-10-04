@@ -213,7 +213,7 @@
   - name: REC Overview
     type: text
     title_text: REC Overview
-    body_text: Since their inception in 1984 RECs through their administrative attachment
+    body_text: Since their inception in 1984 Regional Education Cooperatives (RECs) through their administrative attachment
       to PED are allowed to enter into Intergovernmental Agreements (IGAs) with other
       State Agencies.  Each REC since then has grown differently in terms of programs
       of service and work done on behalf of their member districts and those state
