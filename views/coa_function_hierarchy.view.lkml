@@ -8,37 +8,37 @@ view: coa_function_hierarchy {
         from coa.coafunction f1
         left join coa.coafunction f2 on f2.fkparentfunction=f1.pkcoafunction
         where f1.fkparentfunction is null ;;
-    persist_for: "4 hour"
+    datagroup_trigger: ped_public_financials_test_datagroup
     indexes: ["pkcoafunction", "lvl1_name", "lvl2_name"]
   }
   label: "UCOA Function"
+
   dimension: pk_coa_function {
     type: number
     primary_key: yes
     hidden: yes
     sql: ${TABLE}.pkcoafunction ;;
   }
-  dimension: fk_coa_type {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkcoatype ;;
-  }
+
   dimension: lvl1_code {
     type: string
     hidden: yes
     sql: ${TABLE}.lvl1_code ;;
   }
+
   dimension: rollup_function_name {
     type: string
     label: "Function Rollup Name"
     sql: ${TABLE}.lvl1_name ;;
     drill_fields: [function_name]
   }
+
   dimension: function_code {
     type: string
     label: "Function Code"
     sql: ${TABLE}.lvl2_code ;;
   }
+
   dimension: function_name {
     type: string
     label: "Function Name"

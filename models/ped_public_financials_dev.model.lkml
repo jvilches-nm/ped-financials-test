@@ -5,8 +5,8 @@ include: "/views/**/*.view"
 include: "/dashboards/**/*.dashboard"
 
 datagroup: ped_public_financials_test_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "4 hour"
+  sql_trigger: SELECT max(modify_date) FROM sys.tables;;
+  max_cache_age: "24 hours"
 }
 
 persist_with: ped_public_financials_test_datagroup
@@ -54,7 +54,7 @@ explore: actuals_revenue_line {
   join: stars_locations {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
+    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  and ${entity_year.parent_type}!='Regional Education Cooperative';;
   }
   join: stars_districts {
     relationship: many_to_one
@@ -64,7 +64,7 @@ explore: actuals_revenue_line {
   join: rec_names {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year}  ;;
+    sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year} and ${entity_year.parent_type}='Regional Education Cooperative' ;;
   }
 }
 
@@ -285,6 +285,27 @@ explore: stars_locations {
     relationship: many_to_one
     type: inner
     sql_on: ${stars_locations.location_year}=${budget_year.year_name} ;;
+  }
+}
+
+explore: tribal_consultation {
+  join: budget_year {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${tribal_consultation.school_year}=${budget_year.year_name};;
+  }
+  join: stars_districts {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${stars_districts.location_year}=${tribal_consultation.school_year}
+       and ${stars_districts.district_id} = ${tribal_consultation.district_code};;
+  }
+  join: stars_locations {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${stars_locations.location_year} = ${tribal_consultation.school_year}
+       and ${stars_locations.location_code} = ${tribal_consultation.location_code}
+      and ${tribal_consultation.location_code}!='';;
   }
 }
 

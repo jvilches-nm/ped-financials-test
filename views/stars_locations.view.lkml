@@ -20,7 +20,7 @@ view: stars_locations {
   dimension: district_name {
     label: "District Name:"
     type: string
-    hidden: no
+    hidden: yes
     sql: ${TABLE}.district_name ;;
     drill_fields: [School_name]
   }
@@ -101,13 +101,20 @@ view: stars_locations {
     sql: ${TABLE}.kf_pop ;;
   }
 
+  dimension: location_full_address {
+    type: string
+    sql:  ${TABLE}.location_address +", "+ ${TABLE}.location_city +", "+ ${TABLE}.location ${location_state} +"" "+ ${TABLE}.location_zip;;
+  }
+
   dimension: location_address {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_address ;;
   }
 
   dimension: location_city {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_city ;;
   }
 
@@ -129,11 +136,13 @@ view: stars_locations {
 
   dimension: location_latitude {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_latitude ;;
   }
 
   dimension: location_longitude {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_longitude ;;
   }
 
@@ -150,13 +159,11 @@ view: stars_locations {
     link: {
       label: "School Profile"
       url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
       label: "Compare"
       url: "/embed/dashboards-next/ped_public_financials::school_comp?Select%20Schools:={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
@@ -174,13 +181,11 @@ view: stars_locations {
     link: {
       label: "School Profile"
       url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
       label: "Compare"
       url: "/embed/dashboards-next/ped_public_financials::school_comp?Select%20Schools:={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
@@ -190,34 +195,14 @@ view: stars_locations {
     }
   }
 
-
-#  dimension :Name_of_the_School{
-#    label: "Name of the School"
-#    type: string
-#    sql: ${TABLE}.location_name ;;
-#    html: {% if stars_locations.location_name._is_filtered %}
-#    <a>{{rendered_value}} </a>
-#    {% else %}
-#    <a> All Schools </a>
-#    {% endif %};;
-#    link: {
-#      label: "School Profile"
-#      url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
-#      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
-#    }
-  # }
-
-
-
   dimension: location_phone {
     type: string
     sql: ${TABLE}.location_phone ;;
   }
 
-
-
   dimension: location_state {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_state ;;
   }
 
@@ -250,16 +235,13 @@ view: stars_locations {
 
   dimension: location_year {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_year ;;
   }
 
   dimension: location_zip {
     type: string
-    sql: ${TABLE}.location_zip ;;
-  }
-
-  dimension: Zip {
-    type: zipcode
+    hidden: yes
     sql: ${TABLE}.location_zip ;;
   }
 
@@ -301,7 +283,6 @@ view: stars_locations {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
   }
 
-
   measure: student_pop {
     type: sum
     sql: ${TABLE}.student_pop ;;
@@ -330,8 +311,7 @@ view: stars_locations {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
   }
 
-
-  dimension: location{
+  dimension: location {
     type: string
     sql: ${TABLE}.location_name ;;
   }
@@ -361,12 +341,6 @@ view: stars_locations {
     type: location
     sql_longitude: ${stars_districts.district_office_longitude} ;;
     sql_latitude: ${stars_districts.district_office_latitude} ;;
-
-  }
-
-  dimension: District_School {
-    sql: ${TABLE}.district_name ;;
-    drill_fields: [School_name]
   }
 
   dimension: District_Custom_Map {
@@ -374,18 +348,15 @@ view: stars_locations {
     label: "District Map"
     map_layer_name:my_neighborhood_layer
     sql: ${TABLE}.district_name ;;
-    #sql: concat(upper(substring(${TABLE}.district_name,1,1)), lower(substring(${TABLE}.district_name,2,43))) ;;
     html: <p style="color: Yellow; font-size: 150%">{{ value }}</p> ;;
     link: {
       label: "School Profile"
       url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
       label: "Compare"
       url: "/embed/dashboards-next/ped_public_financials::school_comp?Select%20Schools:={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
@@ -395,22 +366,4 @@ view: stars_locations {
     }
   }
 
-
-  #parameter: Schools_granularity {
-  #type: string
-  #allowed_value: { value: "Dist. Schools" }
-  #allowed_value: { value: "Schools" }
-  #}
-
-  #dimension: date {
-  #label_from_parameter: Schools_granularity
-  #sql:
-  #CASE
-  #WHEN {% parameter Schools_granularity %} = 'Dist. Schools'
-  #THEN ${TABLE}.district_name}::VARCHAR
-  # WHEN {% parameter Schools_granularity %} = 'Schools'
-  #THEN ${Zip}::VARCHAR
-  #ELSE NULL
-  #END ;;
-  #}
 }

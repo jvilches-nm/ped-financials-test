@@ -95,7 +95,6 @@ view: stars_districts {
     link: {
       label: "District Profile"
       url: "/embed/dashboards-next/ped_public_financials::district?District:={{ value }}"
-      #url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
@@ -108,11 +107,13 @@ view: stars_districts {
 
   dimension: district_office_latitude {
     type: string
+    hidden: yes
     sql: ${TABLE}.district_office_latitude ;;
   }
 
   dimension: district_office_longitude {
     type: string
+    hidden: yes
     sql: ${TABLE}.district_office_longitude ;;
   }
 
@@ -129,6 +130,7 @@ view: stars_districts {
 
   dimension: location_year {
     type: string
+    hidden: yes
     sql: ${TABLE}.location_year ;;
   }
 
@@ -287,11 +289,13 @@ view: stars_districts {
     label: "# Students"
     sql: ${TABLE}.total_student_pop ;;
   }
+
   dimension: public_student_pop_dim {
     type: number
     hidden: yes
     sql: ${TABLE}.public_student_pop ;;
   }
+
   dimension: district_size {
     type: string
     sql: CASE WHEN ${public_student_pop_dim}<200 then 'XS'
@@ -312,7 +316,6 @@ view: stars_districts {
     label: "District Name:"
     map_layer_name: my_neighborhood_layer
     sql: ${TABLE}.district_name ;;
-    #html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"
       url: "/embed/dashboards-next/ped_public_financials::district?District:={{ value }}"
@@ -321,14 +324,8 @@ view: stars_districts {
     link: {
       label: "Map"
       url: "/embed/dashboards-next/ped_public_financials::school_map?District:={{ value }}"
-      #url: "https://openbooks.ped.nm.gov/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District:={{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
-    #link: {
-    #label: "Website"
-    #url: "http://34.122.8.245/districts/"
-    #icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
-    #}
   }
 
   dimension :Name_of_the_District{

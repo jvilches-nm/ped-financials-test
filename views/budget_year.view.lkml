@@ -1,5 +1,10 @@
 view: budget_year {
-  sql_table_name: Common.BudgetYear ;;
+  derived_table: {
+    sql: select * from common.budgetyear where YEAR(enddate)>=2021 ;;
+    datagroup_trigger: ped_public_financials_test_datagroup
+    indexes: ["pkBudgetYear", "YearName"]
+  }
+
   label: "Year"
 
   dimension: pk_budget_year {

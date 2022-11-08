@@ -6,11 +6,11 @@ view: entity_year {
       left join common.entitytype et on et.pkentitytype=ey.fkentitytype
       left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
       left join common.entitytype ct on ct.pkentitytype=c.fkentitytype
-      where et.name not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution');;
-    persist_for: "4 hour"
+      where et.name in ('Regional Education Cooperative', 'State Charter School', 'School District');;
+    datagroup_trigger: ped_public_financials_test_datagroup
     indexes: ["pkentityyear", "child_code", "child_name"]
   }
-  label: "OBMS Location"
+  label: "OBMS Location - Reference Only"
 
   dimension: parent_type {
     type: string

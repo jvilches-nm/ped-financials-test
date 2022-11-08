@@ -21,7 +21,7 @@ view: actuals_budget_period {
            AND    YEAR(y.enddate)>=2021) x
        where lastapproved=1
        ;;
-    persist_for: "4 hour"
+    datagroup_trigger: ped_public_financials_test_datagroup
     indexes: ["pkactualsbudgetperiod"]
   }
   label: "Actuals Period"
@@ -58,6 +58,9 @@ view: actuals_budget_period {
   dimension: reporting_period_description {
     type: string
     sql: ${TABLE}.reporting_period_description ;;
+  }
+  measure: count_entities {
+    type: count
   }
 
 }
