@@ -1,9 +1,9 @@
-- dashboard: recs
+- dashboard: recs_dashboard_new_test
   title: RECs Dashboard NEW TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: aIXsNT1ZuPeDBtXdNYNXVl
+  preferred_slug: iqHMYQK34VU2Zj1KfLREJL
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -26,9 +26,9 @@
     value_format: ''
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
+      Parent Type: entity_year.parent_type
+      Fiscal Year: budget_year.year_name
     row: 4
     col: 12
     width: 11
@@ -36,12 +36,11 @@
   - name: Revenue and Expenditures
     type: text
     title_text: Revenue and Expenditures
-    subtitle_text: ''
     body_text: The latest fiscal year data shows only the approved quarterly data
       - it will not show the full year of data until all four quarters have been submitted
       and approved. Data will be updated throughout the year as it is approved in
       the Operating Budget Management System.
-    row: 18
+    row: 20
     col: 0
     width: 24
     height: 2
@@ -89,10 +88,10 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 28
+      Parent Type: entity_year.parent_type
+      Fiscal Year: budget_year.year_name
+    row: 30
     col: 0
     width: 23
     height: 8
@@ -115,9 +114,9 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
+      Parent Type: entity_year.parent_type
+      Fiscal Year: budget_year.year_name
     row: 0
     col: 12
     width: 11
@@ -149,9 +148,9 @@
     custom_color: "#9B8E20"
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
+      Parent Type: entity_year.parent_type
+      Fiscal Year: budget_year.year_name
     row: 2
     col: 12
     width: 11
@@ -203,24 +202,25 @@
       actuals_revenue_line.amount: "#9B8E20"
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 20
+      Parent Type: entity_year.parent_type
+      Fiscal Year: budget_year.year_name
+    row: 22
     col: 0
     width: 23
     height: 8
   - name: REC Overview
     type: text
     title_text: REC Overview
-    body_text: Since their inception in 1984 Regional Education Cooperatives (RECs) through their administrative attachment
-      to PED are allowed to enter into Intergovernmental Agreements (IGAs) with other
-      State Agencies.  Each REC since then has grown differently in terms of programs
-      of service and work done on behalf of their member districts and those state
-      agencies.  There will always be a discrepancy between Budgeted Revenues and
-      Expenditures and Actual Revenues and Expenditures because of changes in program
-      and use of funds directed by the IGA issuing agency. For more information about
-      New Mexico RECs, please follow this <a href="https://www.nmreca.org/Home" target="_BLANK">link</a>.
+    body_text: Since their inception in 1984 Regional Education Cooperatives (RECs)
+      through their administrative attachment to PED are allowed to enter into Intergovernmental
+      Agreements (IGAs) with other State Agencies.  Each REC since then has grown
+      differently in terms of programs of service and work done on behalf of their
+      member districts and those state agencies.  There will always be a discrepancy
+      between Budgeted Revenues and Expenditures and Actual Revenues and Expenditures
+      because of changes in program and use of funds directed by the IGA issuing agency.
+      For more information about New Mexico RECs, please follow this <a href="https://www.nmreca.org/Home"
+      target="_BLANK">link</a>.
     row: 0
     col: 0
     width: 12
@@ -284,9 +284,9 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Fiscal Year: rec_member_districts.fiscal_year
       Select REC: rec_member_districts.rec_name
-    row: 9
+      Fiscal Year: rec_member_districts.fiscal_year
+    row: 11
     col: 12
     width: 11
     height: 9
@@ -296,10 +296,80 @@
     body_text: '###This is a list of state districts that are REC members. For a complete
       list of REC member entities please follow this <a href="https://tb2cdn.schoolwebmasters.com/accnt_171650/site_257648/Documents/RECA-Districts-Distribution-Map.pdf"
       target="_BLANK">link</a>.'
-    row: 6
+    row: 8
     col: 12
     width: 11
     height: 3
+  - title: Financial Approval Status
+    name: Financial Approval Status
+    model: ped_public_financials_dev
+    explore: actuals_line
+    type: looker_grid
+    fields: [actuals_budget_period.reporting_period_code, actuals_budget_period.count_entities]
+    filters: {}
+    sorts: [actuals_budget_period.count_entities desc 0]
+    limit: 500
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    series_labels:
+      actuals_budget_period.count_entities: "# RECs"
+      actuals_budget_period.reporting_period_code: Financial Approval Status
+    series_cell_visualizations:
+      actuals_budget_period.count_entities:
+        is_active: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    series_types: {}
+    title_hidden: true
+    listen:
+      Select REC: rec_names.rec_name
+      Parent Type: entity_year.parent_type
+      Fiscal Year: budget_year.year_name
+    row: 6
+    col: 12
+    width: 11
+    height: 2
   filters:
   - name: Fiscal Year
     title: Fiscal Year
@@ -310,7 +380,6 @@
     ui_config:
       type: button_toggles
       display: inline
-      options: []
     model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
@@ -339,7 +408,6 @@
     ui_config:
       type: dropdown_menu
       display: inline
-      options: []
     model: ped_public_financials_dev
     explore: actuals_line
     listens_to_filters: []

@@ -1,9 +1,9 @@
-- dashboard: school_comp
+- dashboard: school_comparison_new_test
   title: School Comparison NEW TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: VpSyOSWuPObmzZX9pd6bGt
+  preferred_slug: 6JrMEVFSs76qOPS2RAbdWU
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -61,10 +61,10 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    row: 42
+    row: 48
     col: 0
     width: 24
     height: 8
@@ -125,10 +125,10 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    row: 50
+    row: 56
     col: 0
     width: 24
     height: 8
@@ -181,16 +181,16 @@
     type: looker_map
     column_limit: 50
     listen:
-    - 'Select Schools:': stars_locations.School_name_plain
-      Fiscal Year: stars_locations.location_year
-      Location Type: stars_locations.location_type
-    - 'Select Schools:': stars_locations.School_name_plain
-      Fiscal Year: stars_locations.location_year
-      Location Type: stars_locations.location_type
-    row: 4
-    col: 0
-    width: 6
-    height: 7
+    - Location Type: stars_locations.location_type
+      'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+    - Location Type: stars_locations.location_type
+      'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+    row: 7
+    col: 14
+    width: 10
+    height: 10
   - title: Actual Expenditures by Fund Category
     name: Actual Expenditures by Fund Category
     model: ped_public_financials_dev
@@ -276,10 +276,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    row: 34
+    row: 40
     col: 0
     width: 24
     height: 8
@@ -348,10 +348,10 @@
     show_dropoff: false
     defaults_version: 1
     listen:
-      'Select Schools:': stars_locations.School_name_plain
-      Fiscal Year: stars_locations.location_year
       Location Type: stars_locations.location_type
-    row: 17
+      'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+    row: 23
     col: 0
     width: 24
     height: 7
@@ -360,7 +360,7 @@
     title_text: Revenue and Expenditures
     body_text: Please note, revenue will only exist for charter schools, not for district
       schools.
-    row: 24
+    row: 30
     col: 0
     width: 24
     height: 2
@@ -368,7 +368,7 @@
     type: text
     title_text: Students
     body_text: ''
-    row: 15
+    row: 21
     col: 0
     width: 24
     height: 2
@@ -444,10 +444,10 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select Schools:': stars_locations.School_name_plain
-      Fiscal Year: stars_locations.location_year
       Location Type: stars_locations.location_type
-    row: 11
+      'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+    row: 17
     col: 0
     width: 24
     height: 4
@@ -529,17 +529,16 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     listen:
+      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    row: 26
+    row: 32
     col: 0
     width: 24
     height: 8
   - name: Overview
     type: text
     title_text: Overview
-    subtitle_text: ''
     body_text: |-
       ###The latest fiscal year data shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
@@ -596,13 +595,13 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
     row: 4
-    col: 15
-    width: 9
-    height: 7
+    col: 0
+    width: 14
+    height: 6
   - title: Actual Expenditures for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures for Special Ed, At-Risk and Bilingual Programs
     model: ped_public_financials_dev
@@ -689,10 +688,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    row: 58
+    row: 64
     col: 0
     width: 24
     height: 8
@@ -708,7 +707,7 @@
       dynamic_fields: [{table_calculation: avg_total_spend, label: Avg total spend,
           expression: "${actuals_line.amount}/${stars_locations.student_pop}", value_format: !!null '',
           value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-      hidden_fields: [actuals_line.amount, stars_locations.student_pop]
+      join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_line
       type: table
@@ -721,7 +720,6 @@
             spend, expression: "${actuals_line.amount}/${stars_locations.student_pop}",
           value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
           _type_hint: number}]
-      hidden_fields: [actuals_line.amount, stars_locations.student_pop]
       join_fields:
       - field_name: stars_locations.School_name_plain
         source_field_name: stars_locations.School_name_plain
@@ -765,18 +763,86 @@
     hidden_fields: [actuals_line.amount, stars_locations.student_pop, q1_stars_locations.student_pop,
       q1_actuals_line.amount]
     type: looker_column
+    series_types: {}
     sorts: [stars_locations.School_name_plain]
+    column_limit: 50
     listen:
-    - 'Select Schools:': stars_locations.School_name_plain
+    - Location Type: stars_locations.location_type
+      'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    - 'Select Schools:': stars_locations.School_name_plain
+    - Location Type: stars_locations.location_type
+      'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-      Location Type: stars_locations.location_type
-    row: 4
-    col: 6
-    width: 9
+    row: 10
+    col: 0
+    width: 14
     height: 7
+  - title: Financial Approval Status
+    name: Financial Approval Status
+    model: ped_public_financials_dev
+    explore: actuals_line
+    type: looker_grid
+    fields: [stars_locations.School_name_plain, actuals_budget_period.reporting_period_code]
+    sorts: [stars_locations.School_name_plain]
+    limit: 4
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    series_labels:
+      stars_locations.School_name_plain: School
+      actuals_budget_period.reporting_period_code: Financial Approval Status
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    series_types: {}
+    title_hidden: true
+    listen:
+      Location Type: stars_locations.location_type
+      'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+    row: 4
+    col: 14
+    width: 10
+    height: 3
   filters:
   - name: Location Type
     title: Location Type
@@ -803,7 +869,6 @@
     ui_config:
       type: button_toggles
       display: inline
-      options: []
     model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
@@ -817,7 +882,6 @@
     ui_config:
       type: tag_list
       display: popover
-      options: []
     model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: [Location Type]

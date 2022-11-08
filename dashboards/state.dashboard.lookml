@@ -1,9 +1,9 @@
-- dashboard: state
+- dashboard: state_dashboard_new_test
   title: State Dashboard NEW TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: q6jAR2vcUZDvaqquRGuzKk
+  preferred_slug: DoIBNMLbcjV6X3YndMXrO4
   elements:
   - title: Spending
     name: Spending
@@ -29,7 +29,7 @@
       Fiscal Year: budget_year.year_name
     row: 6
     col: 0
-    width: 7
+    width: 6
     height: 2
   - title: Students by Location Type
     name: Students by Location Type
@@ -95,8 +95,8 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Fiscal Year: stars_locations.location_year
-    row: 14
+      Fiscal Year: budget_year.year_name
+    row: 16
     col: 15
     width: 9
     height: 8
@@ -120,10 +120,10 @@
     single_value_title: Students
     defaults_version: 1
     listen:
-      Fiscal Year: stars_locations.location_year
-    row: 4
-    col: 16
-    width: 8
+      Fiscal Year: budget_year.year_name
+    row: 12
+    col: 0
+    width: 6
     height: 2
   - title: District Schools
     name: District Schools
@@ -176,7 +176,7 @@
     hidden_fields: [stars_locations.location_name]
     series_types: {}
     listen:
-      Fiscal Year: stars_locations.location_year
+      Fiscal Year: budget_year.year_name
     row: 6
     col: 20
     width: 4
@@ -185,7 +185,7 @@
     type: text
     title_text: Schools/Students
     body_text: ''
-    row: 12
+    row: 14
     col: 0
     width: 24
     height: 2
@@ -210,9 +210,9 @@
     single_value_title: State Charter Schools
     defaults_version: 1
     listen:
-      Fiscal Year: stars_locations.location_year
+      Fiscal Year: budget_year.year_name
     row: 8
-    col: 16
+    col: 20
     width: 4
     height: 2
   - title: Local Charters
@@ -237,8 +237,8 @@
     single_value_title: Local Charter Schools
     defaults_version: 1
     listen:
-      Fiscal Year: stars_locations.location_year
-    row: 8
+      Fiscal Year: budget_year.year_name
+    row: 10
     col: 20
     width: 4
     height: 2
@@ -293,9 +293,9 @@
     hidden_fields: []
     series_types: {}
     listen:
-      Fiscal Year: stars_districts.location_year
-    row: 6
-    col: 16
+      Fiscal Year: budget_year.year_name
+    row: 4
+    col: 20
     width: 4
     height: 2
   - title: RECs
@@ -349,15 +349,15 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 10
-    col: 16
-    width: 8
+    row: 12
+    col: 20
+    width: 4
     height: 2
   - name: Revenue and Expenditures
     type: text
     title_text: Revenue and Expenditures
     body_text: ''
-    row: 22
+    row: 24
     col: 0
     width: 24
     height: 2
@@ -437,8 +437,8 @@
       stars_locations.g12_pop: G12
     defaults_version: 1
     listen:
-      Fiscal Year: stars_locations.location_year
-    row: 14
+      Fiscal Year: budget_year.year_name
+    row: 16
     col: 0
     width: 15
     height: 8
@@ -533,10 +533,10 @@
     sorts: [stars_districts.district_name]
     column_limit: 50
     listen:
-    - Fiscal Year: stars_districts.location_year
-    - Fiscal Year: stars_districts.location_year
-    - Fiscal Year: stars_districts.location_year
-    row: 58
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    row: 60
     col: 0
     width: 12
     height: 6
@@ -989,10 +989,10 @@
           " Charter School", "")', value_format: !!null '', value_format_name: !!null '',
         _kind_hint: dimension, _type_hint: string}]
     listen:
-    - Fiscal Year: stars_locations.location_year
-    - Fiscal Year: stars_locations.location_year
-    - Fiscal Year: stars_locations.location_year
-    row: 58
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    row: 60
     col: 12
     width: 12
     height: 6
@@ -1000,7 +1000,7 @@
     type: text
     title_text: Districts/Charters
     body_text: ''
-    row: 56
+    row: 58
     col: 0
     width: 24
     height: 2
@@ -1027,12 +1027,11 @@
       Fiscal Year: budget_year.year_name
     row: 4
     col: 0
-    width: 7
+    width: 6
     height: 2
   - name: State Overview
     type: text
     title_text: State Overview
-    subtitle_text: ''
     body_text: |-
       ###Overview of state education finances - includes all district and charter students, all district and charter schools, and the regional education cooperatives. It excludes capital project and debt service funds. To learn more about the data displayed or to find definitions of terms please click <a href="https://openbooks.ped.nm.gov/learn-more/" target="_PARENT">here</a>.
 
@@ -1130,8 +1129,8 @@
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
     row: 4
-    col: 7
-    width: 9
+    col: 6
+    width: 14
     height: 8
   - title: Actual Expenditures by Fund Category
     name: Actual Expenditures by Fund Category
@@ -1183,7 +1182,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 24
+    row: 26
     col: 12
     width: 12
     height: 8
@@ -1238,7 +1237,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 24
+    row: 26
     col: 0
     width: 12
     height: 8
@@ -1296,7 +1295,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 32
+    row: 34
     col: 8
     width: 16
     height: 8
@@ -1355,125 +1354,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 40
+    row: 42
     col: 8
     width: 16
     height: 8
-  - title: Avg Instructional Spending per Student to Date
-    name: Avg Instructional Spending per Student to Date
-    model: ped_public_financials_dev
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.amount, budget_year.year_name, stars_districts.total_student_pop]
-    filters:
-      coa_function_hierarchy.rollup_function_name: Instruction
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    dynamic_fields: [{table_calculation: avg_instructional_spending_per_student, label: Avg
-          Instructional Spending per Student, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    hidden_fields: [actuals_line.amount, stars_districts.total_student_pop]
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 10
-    col: 0
-    width: 7
-    height: 2
-  - title: Avg Spending per Student to Date
-    name: Avg Spending per Student to Date
-    model: ped_public_financials_dev
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.amount, stars_districts.total_student_pop]
-    filters: {}
-    limit: 500
-    column_limit: 50
-    dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
-          Per Student, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields: [actuals_line.amount, stars_districts.total_student_pop]
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 8
-    col: 0
-    width: 7
-    height: 2
   - title: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
     model: ped_public_financials_dev
@@ -1535,7 +1419,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 48
+    row: 50
     col: 0
     width: 24
     height: 8
@@ -1594,7 +1478,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 32
+    row: 34
     col: 0
     width: 8
     height: 8
@@ -1654,10 +1538,147 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 40
+    row: 42
     col: 0
     width: 8
     height: 8
+  - title: Financial Approval Status
+    name: Financial Approval Status
+    model: ped_public_financials_dev
+    explore: actuals_line
+    type: looker_grid
+    fields: [actuals_budget_period.reporting_period_code, actuals_budget_period.count_entities]
+    sorts: [actuals_budget_period.reporting_period_code]
+    limit: 500
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: center
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    series_labels:
+      actuals_budget_period.reporting_period_code: Period Approved
+      actuals_budget_period.count_entities: "# Budget Entities"
+    series_cell_visualizations:
+      actuals_budget_period.count_entities:
+        is_active: false
+    series_text_format:
+      actuals_budget_period.reporting_period_code:
+        align: center
+      actuals_budget_period.count_entities:
+        align: center
+    header_font_color: "#068993"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    series_types: {}
+    hidden_fields: []
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 8
+    col: 0
+    width: 6
+    height: 4
+  - name: Avg Spending Per Student to Date
+    title: Avg Spending Per Student to Date
+    merged_queries:
+    - model: ped_public_financials_dev
+      explore: actuals_line
+      type: table
+      fields: [actuals_line.amount, budget_year.year_name]
+      sorts: [actuals_line.amount desc 0]
+      limit: 500
+    - model: ped_public_financials_dev
+      explore: stars_locations
+      type: table
+      fields: [stars_districts.total_student_pop, budget_year.year_name]
+      sorts: [stars_districts.total_student_pop desc 0]
+      limit: 500
+      join_fields:
+      - field_name: budget_year.year_name
+        source_field_name: budget_year.year_name
+    hidden_fields: [budget_year.year_name, actuals_line.amount, stars_districts.total_student_pop]
+    type: single_value
+    series_types: {}
+    dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
+        label: Avg Spending Per Student, value_format: !!null '', value_format_name: usd_0,
+        _kind_hint: measure, table_calculation: avg_spending_per_student, _type_hint: number}]
+    listen:
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    row: 12
+    col: 6
+    width: 7
+    height: 2
+  - name: Avg Instructional Spending per Student to Date
+    title: Avg Instructional Spending per Student to Date
+    merged_queries:
+    - model: ped_public_financials_dev
+      explore: actuals_line
+      type: table
+      fields: [actuals_line.amount, budget_year.year_name]
+      filters:
+        coa_function_hierarchy.rollup_function_name: Instruction
+      sorts: [actuals_line.amount desc 0]
+      limit: 500
+    - model: ped_public_financials_dev
+      explore: stars_locations
+      type: table
+      fields: [stars_districts.total_student_pop, budget_year.year_name]
+      sorts: [stars_districts.total_student_pop desc 0]
+      limit: 500
+      join_fields:
+      - field_name: budget_year.year_name
+        source_field_name: budget_year.year_name
+    hidden_fields: [budget_year.year_name, actuals_line.amount, stars_districts.total_student_pop]
+    type: single_value
+    series_types: {}
+    dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
+        label: Avg Spending Per Student, value_format: !!null '', value_format_name: usd_0,
+        _kind_hint: measure, table_calculation: avg_spending_per_student, _type_hint: number}]
+    listen:
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    row: 12
+    col: 13
+    width: 7
+    height: 2
   filters:
   - name: Fiscal Year
     title: Fiscal Year
@@ -1668,7 +1689,6 @@
     ui_config:
       type: button_toggles
       display: inline
-      options: []
     model: ped_public_financials_dev
     explore: actuals_revenue_line
     listens_to_filters: []
