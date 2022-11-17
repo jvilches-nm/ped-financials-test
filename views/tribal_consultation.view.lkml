@@ -1,9 +1,14 @@
 view: tribal_consultation {
   sql_table_name: looker.tribal_consultation ;;
 
+  dimension: tribe_name {
+    type: string
+    sql: ${TABLE}.tribe_name ;;
+  }
+
   dimension: affirmation_topics {
     type: string
-    sql: REPLACE(${TABLE}.affirmation_topics, '#', CHAR(13)) ;;
+    sql: REPLACE(${TABLE}.affirmations, '#', CHAR(13)) ;;
     html:<div style="white-space:pre">{{value}}</div>;;
   }
 
@@ -13,41 +18,46 @@ view: tribal_consultation {
     html:<div style="white-space:pre">{{value}}</div>;;
     }
 
+  dimension: narrative {
+    type: string
+    sql: ${TABLE}.narrative ;;
+  }
+
   dimension: coordinator_email {
     type: string
-    sql: ${TABLE}.coordinator_email ;;
+    sql: ${TABLE}.district_coordinator_email ;;
   }
 
   dimension: coordinator_name {
     type: string
-    sql: ${TABLE}.coordinator_name ;;
+    sql: ${TABLE}.district_coordinator_name ;;
   }
 
   dimension: coordinator_phone {
     type: string
-    sql: ${TABLE}.coordinator_phone ;;
+    sql: ${TABLE}.district_coordinator_phone ;;
   }
 
   dimension: coordinator_role {
     type: string
-    sql: ${TABLE}.coordinator_role ;;
+    sql: ${TABLE}.district_coordinator_title ;;
   }
 
   dimension: district {
     type: string
-    #hidden: yes
+    hidden: yes
     sql: ${TABLE}.district ;;
   }
 
   dimension: district_code {
     type: string
-    #hidden: yes
+    hidden: yes
     sql: ${TABLE}.district_code ;;
   }
 
   dimension: location_code {
     type: string
-    #hidden: yes
+    hidden: yes
     sql: ${TABLE}.location_code ;;
   }
 
@@ -59,7 +69,7 @@ view: tribal_consultation {
 
   dimension: superintendent {
     type: string
-    sql: ${TABLE}.superintendent ;;
+    sql: ${TABLE}.superintendent_name ;;
   }
 
   dimension: superintendent_email {
@@ -89,7 +99,35 @@ view: tribal_consultation {
 
   dimension: tribal_role {
     type: string
-    sql: ${TABLE}.tribal_role ;;
+    sql: ${TABLE}.tribal_title ;;
   }
 
+  dimension: response_to_good_faith_efforts {
+    type: string
+    sql: case when ${TABLE}.response_to_good_faith_efforts='TRUE' then 'Yes' else 'No' end ;;
+  }
+
+  dimension: attempted_contact_details {
+    type: string
+    sql: ${TABLE}.attempted_contact_details ;;
+  }
+
+  dimension: signature_printed_superintendent {
+    type: string
+    sql: ${TABLE}.sig_printed_superintendent ;;
+  }
+  dimension: signature_date_superintendent {
+    type: date
+    sql: ${TABLE}.sig_date_superintendent ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }};;
+  }
+  dimension: signature_printed_tribe {
+    type: string
+    sql: ${TABLE}.sig_printed_tribe ;;
+  }
+  dimension: signature_date_tribe {
+    type: date
+    sql: ${TABLE}.sig_date_tribe ;;
+    html: {{ rendered_value | date: "%m/%d/%Y" }};;
+  }
 }

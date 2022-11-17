@@ -309,6 +309,27 @@ explore: tribal_consultation {
   }
 }
 
+explore: student_outcome_funding_narrative {
+  join: budget_year {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${student_outcome_funding_narrative.school_year}=${budget_year.year_name};;
+  }
+  join: stars_districts {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${stars_districts.location_year}=${student_outcome_funding_narrative.school_year}
+      and ${stars_districts.district_id} = ${student_outcome_funding_narrative.district_id};;
+  }
+  join: stars_locations {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${stars_locations.location_year} = ${student_outcome_funding_narrative.school_year}
+       and ${stars_locations.location_code} = ${student_outcome_funding_narrative.location_code};;
+  }
+
+}
+
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"
   property_key: "name"
