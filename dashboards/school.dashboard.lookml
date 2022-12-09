@@ -217,8 +217,8 @@
     col: 0
     width: 24
     height: 7
-  - title: School Data
-    name: School Data
+  - title: School Information
+    name: School Information
     model: ped_public_financials_dev
     explore: stars_locations
     type: marketplace_viz_multiple_value::multiple_value-marketplace
@@ -573,11 +573,9 @@
     type: text
     title_text: School Overview
     body_text: |-
-      ### School level financials are only available for charter schools prior to the 2022-2023 school year.
+      ###The current fiscal year shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
-      ###The latest fiscal year data shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
-
-      ###Starting 2022-2023, District School Approved Actual data Year to Date will be displayed.
+      ###Starting 2022-2023, Approved Year-to-Date Actual data will be displayed for District Schools. School level financials are only available for charter schools prior to the 2022-2023 school year.
 
       ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
@@ -586,6 +584,10 @@
     height: 3
   - title: Avg Spending per Student to Date
     name: Avg Spending per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total school expenditures to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
@@ -704,6 +706,10 @@
     height: 8
   - title: Avg Instructional Spending per Student to Date
     name: Avg Instructional Spending per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total school expenditures for the Instructional function to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     model: ped_public_financials_dev
     explore: actuals_line
     type: single_value

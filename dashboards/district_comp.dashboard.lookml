@@ -776,6 +776,10 @@
     height: 2
   - name: Avg Spending per Student to Date
     title: Avg Spending per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total district expenditures, and total Instruction function expenditures, to date for the selected school year not including capital or debt service funds divided by the number of district students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Charter students and expenditures are not included in these calculations.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line

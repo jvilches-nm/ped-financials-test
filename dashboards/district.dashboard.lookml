@@ -1257,7 +1257,8 @@
     title: Avg Spending per Student to Date
     note_state: collapsed
     note_display: hover
-    note_text: Does not include charter students or financials.
+    note_text: |-
+      Total district expenditures for the selected school year not including capital or debt service funds divided by the number of district students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Charter students and expenditures are not included in these calculations.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1298,7 +1299,8 @@
     title: Avg Instructional Spending per Student to Date
     note_state: collapsed
     note_display: hover
-    note_text: Does not include charter students or financials.
+    note_text: |-
+      Total district expenditures in the Instructional function for the selected school year not including capital or debt service funds divided by the number of district students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Charter students and expenditures are not included in these calculations.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line

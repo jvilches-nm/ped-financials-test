@@ -22,7 +22,7 @@ view: actuals_budget_period {
        where lastapproved=1
        ;;
     datagroup_trigger: ped_public_financials_test_datagroup
-    indexes: ["pkactualsbudgetperiod"]
+    indexes: ["pkactualsbudgetperiod", "fkbudget", "fkbudgetyear"]
   }
   label: "Actuals Period"
 

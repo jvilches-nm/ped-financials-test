@@ -1617,6 +1617,10 @@
     height: 4
   - name: Avg Spending Per Student to Date
     title: Avg Spending Per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total state expenditures to date for the selected school year not including capital or debt service funds divided by the number of district and charter students in the state based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1648,6 +1652,10 @@
     height: 2
   - name: Avg Instructional Spending per Student to Date
     title: Avg Instructional Spending per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total state expenditures to date for the selected school year categorized with an Instructional function not including capital or debt service funds divided by the number of district and charter students in the state based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
