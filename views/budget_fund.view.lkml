@@ -11,7 +11,7 @@
              INNER JOIN dbo.BudgetStatus  AS budget_status ON budget.fkBudgetStatus=budget_status.pkBudgetStatus
              INNER JOIN Common.BudgetYear  AS budget_year ON budget.fkBudgetYear=budget_year.pkBudgetYear
              WHERE YEAR(budget_year.StartDate)>=2020
-               AND budget_status.Ordinal>=12 ;;
+               AND budget_status.code in ('FB', 'BS') ;;
     datagroup_trigger: ped_public_financials_test_datagroup
     indexes: ["pkbudgetfund", "fkbudget", "fkbudgetyear"]
    }
