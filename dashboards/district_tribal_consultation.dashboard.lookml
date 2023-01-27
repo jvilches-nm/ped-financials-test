@@ -1,5 +1,5 @@
 - dashboard: district_tribal_consultation
-  title: District Tribal Consultation
+  title: District Tribal Consultation DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -287,7 +287,7 @@
 
       Under section 8538, an affected LEA is one that either: 1) has 50 percent or more of its student enrollment made up of AI/AN students; or 2) received an Indian education formula grant under Title VI of the ESEA, as amended by the ESSA, in the previous fiscal year that exceeds $40,000.
 
-      Please find more information on the Indian Education Bureau <a href="https://webnew.ped.state.nm.us/bureaus/indian-education/tribal-consultation/">Tribal Consultation</a> webpage.
+      Please find more information on the Indian Education Bureau <a href="https://webnew.ped.state.nm.us/bureaus/indian-education/tribal-consultation/" target="_BLANK">Tribal Consultation</a> webpage.
     row: 0
     col: 0
     width: 24
@@ -519,7 +519,7 @@
   - name: District Name
     title: District Name
     type: field_filter
-    default_value: ''
+    default_value: ALBUQUERQUE
     allow_multiple_values: true
     required: false
     ui_config:

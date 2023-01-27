@@ -1,9 +1,9 @@
-- dashboard: school_comparison_new_test
-  title: School Comparison NEW TEST
+- dashboard: school_comp
+  title: School Comparison DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 6JrMEVFSs76qOPS2RAbdWU
+  preferred_slug: yUfC3PmX3THCOXZlnUwbZG
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -543,8 +543,6 @@
       ###The current fiscal year shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
       ###Starting 2022-2023, Approved Year-to-Date Actual data will be displayed for District Schools. School level financials are only available for charter schools prior to the 2022-2023 school year.
-
-      ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
     col: 0
     width: 24
@@ -701,8 +699,12 @@
     title: Avg Spending per Student to Date
     note_state: collapsed
     note_display: hover
-    note_text: |-
-      Total school expenditures to date and total school expenditures to date for the Instructional function for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
+    note_text: Total school expenditures to date and total school expenditures to
+      date for the Instructional function for the selected school year not including
+      capital or debt service funds divided by the number of school students based
+      on the 40-day count for that school year. This average should be considered
+      an estimate for comparison purposes and not an actual tally of the spending
+      per student.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -853,23 +855,24 @@
   - name: Location Type
     title: Location Type
     type: field_filter
-    default_value: Charter School,District School
+    default_value: District School,Local Charter School,State Charter School
     allow_multiple_values: true
     required: true
     ui_config:
       type: button_group
       display: inline
       options:
-      - Charter School
       - District School
+      - Local Charter School
+      - State Charter School
     model: ped_public_financials_dev
-    explore: stars_locations
+    explore: actuals_line
     listens_to_filters: []
-    field: stars_locations.location_type
+    field: stars_locations.location_type_name
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: true
     ui_config:

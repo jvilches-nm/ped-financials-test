@@ -1,9 +1,9 @@
-- dashboard: district_dashboard_new_test
-  title: District Dashboard NEW TEST
+- dashboard: district
+  title: District Dashboard DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: o720axsCrW196r6iYuyDPv
+  preferred_slug: 3BO2tjA1ygHNtvGfJRneLe
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -895,8 +895,7 @@
       \ year of data until all four quarters have been submitted and approved. Data\
       \ will be updated throughout the year as it is approved in the Operating Budget\
       \ Management System. \n\nStarting 2022-2023, District School Approved Actual\
-      \ data Year to Date will be displayed. \n\nStudent Information for 2022-2023\
-      \ will be available when data is submitted and approved in mid-December."
+      \ data Year to Date will be displayed."
     row: 0
     col: 0
     width: 24
@@ -915,7 +914,6 @@
       stars_locations.location_type: "-Charter School"
     sorts: [actuals_line.amount desc 2, coa_function_hierarchy.rollup_function_name]
     limit: 500
-    row_total: right
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -948,10 +946,13 @@
               Services - actuals_line.amount, id: Support Services - actuals_line.amount,
             name: Support Services}], showLabels: false, showValues: true, unpinAxis: false,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     series_types: {}
     series_colors:
       Instruction - actuals_line.amount: "#068993"
-      Support Services - actuals_line.amount: "#A8876C"
+      Support Services - actuals_line.amount: "#D9C202"
+      Operation of Non-Instructional Services - actuals_line.amount: "#A85573"
     defaults_version: 1
     listen:
       District Type: stars_districts.district_type
@@ -1257,8 +1258,11 @@
     title: Avg Spending per Student to Date
     note_state: collapsed
     note_display: hover
-    note_text: |-
-      Total district expenditures for the selected school year not including capital or debt service funds divided by the number of district students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Charter students and expenditures are not included in these calculations.
+    note_text: Total district expenditures for the selected school year not including
+      capital or debt service funds divided by the number of district students based
+      on the 40-day count for that school year. This average should be considered
+      an estimate for comparison purposes and not an actual tally of the spending
+      per student. Charter students and expenditures are not included in these calculations.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1268,6 +1272,7 @@
         stars_locations.location_type_col: "-Charter School"
       sorts: [actuals_line.amount desc 0]
       limit: 500
+      join_fields: []
     - model: ped_public_financials_dev
       explore: stars_locations
       type: table
@@ -1280,6 +1285,7 @@
     hidden_fields: [budget_year.year_name, actuals_line.amount, stars_districts.public_student_pop]
     type: single_value
     series_types: {}
+    column_limit: 50
     dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.public_student_pop}",
         label: Avg Spending Per Student to Date, value_format: !!null '', value_format_name: usd_0,
         _kind_hint: measure, table_calculation: avg_spending_per_student_to_date,
@@ -1299,8 +1305,12 @@
     title: Avg Instructional Spending per Student to Date
     note_state: collapsed
     note_display: hover
-    note_text: |-
-      Total district expenditures in the Instructional function for the selected school year not including capital or debt service funds divided by the number of district students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Charter students and expenditures are not included in these calculations.
+    note_text: Total district expenditures in the Instructional function for the selected
+      school year not including capital or debt service funds divided by the number
+      of district students based on the 40-day count for that school year. This average
+      should be considered an estimate for comparison purposes and not an actual tally
+      of the spending per student. Charter students and expenditures are not included
+      in these calculations.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1311,6 +1321,7 @@
         coa_function_hierarchy.function_name: Instruction
       sorts: [actuals_line.amount desc 0]
       limit: 500
+      join_fields: []
     - model: ped_public_financials_dev
       explore: stars_locations
       type: table
@@ -1323,6 +1334,7 @@
     hidden_fields: [budget_year.year_name, actuals_line.amount, stars_districts.public_student_pop]
     type: single_value
     series_types: {}
+    column_limit: 50
     dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.public_student_pop}",
         label: Avg Spending Per Student to Date, value_format: !!null '', value_format_name: usd_0,
         _kind_hint: measure, table_calculation: avg_spending_per_student_to_date,
@@ -1357,7 +1369,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: true
     ui_config:

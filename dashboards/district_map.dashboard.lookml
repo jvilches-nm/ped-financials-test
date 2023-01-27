@@ -1,5 +1,5 @@
-- dashboard: district_map_new_test
-  title: District Map NEW TEST
+- dashboard: district_map
+  title: District Map DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -158,7 +158,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: false
     ui_config:

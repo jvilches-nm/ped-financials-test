@@ -1,5 +1,5 @@
-- dashboard: recs_dashboard_new_test
-  title: RECs Dashboard NEW TEST
+- dashboard: recs
+  title: RECs Dashboard DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -374,7 +374,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: true
     ui_config:

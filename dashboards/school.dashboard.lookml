@@ -1,9 +1,9 @@
-- dashboard: school_dashboard_new_test
-  title: School Dashboard NEW TEST
+- dashboard: school
+  title: School Dashboard DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: Ahvt96NKYJE0ZEUc26zgXD
+  preferred_slug: XY0FZ8y0XB3QMXbCrm8wsN
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -577,17 +577,12 @@
 
       ###Starting 2022-2023, Approved Year-to-Date Actual data will be displayed for District Schools. School level financials are only available for charter schools prior to the 2022-2023 school year.
 
-      ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
     col: 0
     width: 24
     height: 3
   - title: Avg Spending per Student to Date
     name: Avg Spending per Student to Date
-    note_state: collapsed
-    note_display: hover
-    note_text: |-
-      Total school expenditures to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
@@ -606,6 +601,13 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    note_state: collapsed
+    note_display: hover
+    note_text: Total school expenditures to date for the selected school year not
+      including capital or debt service funds divided by the number of school students
+      based on the 40-day count for that school year. This average should be considered
+      an estimate for comparison purposes and not an actual tally of the spending
+      per student.
     hidden_fields: [actuals_line.amount, stars_locations.student_pop]
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -657,7 +659,6 @@
         Plus Programs,Special Ed Programs
     sorts: [actuals_line.amount desc 2, coa_function_hierarchy.rollup_function_name]
     limit: 500
-    row_total: right
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -690,11 +691,14 @@
               Services - actuals_line.amount, id: Support Services - actuals_line.amount,
             name: Support Services}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     series_types: {}
     series_colors:
       actuals_line.amount: "#068993"
       Instruction - actuals_line.amount: "#068993"
       Support Services - actuals_line.amount: "#F2C73C"
+      Operation of Non-Instructional Services - actuals_line.amount: "#A85573"
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
@@ -706,10 +710,6 @@
     height: 8
   - title: Avg Instructional Spending per Student to Date
     name: Avg Instructional Spending per Student to Date
-    note_state: collapsed
-    note_display: hover
-    note_text: |-
-      Total school expenditures for the Instructional function to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
@@ -730,6 +730,13 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    note_state: collapsed
+    note_display: hover
+    note_text: Total school expenditures for the Instructional function to date for
+      the selected school year not including capital or debt service funds divided
+      by the number of school students based on the 40-day count for that school year.
+      This average should be considered an estimate for comparison purposes and not
+      an actual tally of the spending per student.
     hidden_fields: [actuals_line.amount, stars_locations.student_pop]
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -953,7 +960,7 @@
   - name: Location Type
     title: Location Type
     type: field_filter
-    default_value: Local Charter School,State Charter School
+    default_value: District School,Local Charter School,State Charter School
     allow_multiple_values: true
     required: true
     ui_config:
@@ -970,7 +977,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: true
     ui_config:

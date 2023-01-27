@@ -1,5 +1,5 @@
 - dashboard: school_map
-  title: School Map NEW TEST
+  title: School Map DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
@@ -267,7 +267,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: false
     ui_config:

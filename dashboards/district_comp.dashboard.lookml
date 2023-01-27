@@ -1,9 +1,9 @@
-- dashboard: district_comparison_new_test
-  title: District Comparison NEW TEST
+- dashboard: district_comp
+  title: District Comparison DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 5gI3MKfGDPCut1tgn2FLjb
+  preferred_slug: 6QsfboA61M4xeqfY4EVw5e
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -778,8 +778,12 @@
     title: Avg Spending per Student to Date
     note_state: collapsed
     note_display: hover
-    note_text: |-
-      Total district expenditures, and total Instruction function expenditures, to date for the selected school year not including capital or debt service funds divided by the number of district students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Charter students and expenditures are not included in these calculations.
+    note_text: Total district expenditures, and total Instruction function expenditures,
+      to date for the selected school year not including capital or debt service funds
+      divided by the number of district students based on the 40-day count for that
+      school year. This average should be considered an estimate for comparison purposes
+      and not an actual tally of the spending per student. Charter students and expenditures
+      are not included in these calculations.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -985,8 +989,9 @@
     explore: actuals_line
     type: looker_grid
     fields: [actuals_budget_period.reporting_period_code, stars_districts.district_name]
-    filters: {}
-    sorts: [actuals_budget_period.reporting_period_code desc]
+    filters:
+      stars_locations.location_type: "-Charter School"
+    sorts: [stars_districts.district_name]
     limit: 4
     show_view_names: false
     show_row_numbers: false
@@ -1068,7 +1073,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: true
     ui_config:
