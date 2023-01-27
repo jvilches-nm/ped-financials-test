@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: yUfC3PmX3THCOXZlnUwbZG
+  preferred_slug: rlW29fQRXPq1UKTYAKmldb
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -61,9 +61,9 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 48
     col: 0
     width: 24
@@ -125,9 +125,9 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 56
     col: 0
     width: 24
@@ -181,12 +181,12 @@
     type: looker_map
     column_limit: 50
     listen:
-    - Location Type: stars_locations.location_type
-      'Select Schools:': stars_locations.School_name_plain
+    - 'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    - Location Type: stars_locations.location_type
-      'Select Schools:': stars_locations.School_name_plain
+      Location Type: stars_locations.location_type_name
+    - 'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 7
     col: 14
     width: 10
@@ -276,9 +276,9 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 40
     col: 0
     width: 24
@@ -348,9 +348,9 @@
     show_dropoff: false
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 23
     col: 0
     width: 24
@@ -444,9 +444,9 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 17
     col: 0
     width: 24
@@ -529,9 +529,9 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 32
     col: 0
     width: 24
@@ -595,9 +595,9 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 4
     col: 0
     width: 14
@@ -688,9 +688,9 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 64
     col: 0
     width: 24
@@ -775,12 +775,12 @@
     sorts: [stars_locations.School_name_plain]
     column_limit: 50
     listen:
-    - Location Type: stars_locations.location_type
-      'Select Schools:': stars_locations.School_name_plain
+    - 'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    - Location Type: stars_locations.location_type
-      'Select Schools:': stars_locations.School_name_plain
+      Location Type: stars_locations.location_type_name
+    - 'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 10
     col: 0
     width: 14
@@ -844,9 +844,9 @@
     series_types: {}
     title_hidden: true
     listen:
-      Location Type: stars_locations.location_type
       'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type_name
     row: 4
     col: 14
     width: 10
