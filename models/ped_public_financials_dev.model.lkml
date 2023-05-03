@@ -144,6 +144,7 @@ explore: actuals_line {
 explore: budget_revenue_line {
   sql_always_where: ${coa_account_type.code}='R';;
                 # --    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+
   label: "Budgeted Revenue"
 
   join: budget_fund {

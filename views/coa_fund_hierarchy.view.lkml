@@ -30,6 +30,11 @@ view: coa_fund_hierarchy {
     sql: ${TABLE}.name ;;
   }
 
+  dimension: fund_code_and_name {
+    type: string
+    label: "Fund Code & Name"
+    sql: ${TABLE}.code + ' - ' + ${TABLE}.name ;;
+  }
   dimension: fund_group {
     type: string
     label: "Fund Rollup Name"
