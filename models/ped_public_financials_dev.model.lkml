@@ -12,8 +12,9 @@ datagroup: ped_public_financials_test_datagroup {
 persist_with: ped_public_financials_test_datagroup
 
 explore: actuals_revenue_line {
-  sql_always_where: ${coa_account_type.code}='R'
-                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+  sql_always_where: ${coa_account_type.code}='R'  ;;
+     # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
+
   label: "Actual Revenue"
 
   join: actuals_budget_period {
@@ -69,8 +70,8 @@ explore: actuals_revenue_line {
 }
 
 explore: actuals_line {
-  sql_always_where: ${coa_account_type.code}='E'
-                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+  sql_always_where: ${coa_account_type.code}='E' ;;
+                  # --  and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Expenditures"
 
   join: actuals_budget_period {
@@ -141,8 +142,8 @@ explore: actuals_line {
 }
 
 explore: budget_revenue_line {
-  sql_always_where: ${coa_account_type.code}='R'
-                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+  sql_always_where: ${coa_account_type.code}='R';;
+                # --    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Budgeted Revenue"
 
   join: budget_fund {
@@ -198,8 +199,8 @@ explore: budget_revenue_line {
 }
 
 explore: budget_line {
-  sql_always_where: ${coa_account_type.code}='E'
-                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+  sql_always_where: ${coa_account_type.code}='E';;
+                # --    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Budgeted Expenditures"
   join: budget_fund {
     relationship: many_to_one
