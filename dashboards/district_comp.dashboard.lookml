@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 6QsfboA61M4xeqfY4EVw5e
+  preferred_slug: qgjNwu57UNA3z3xnvNBHyU
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -13,7 +13,6 @@
     fields: [actuals_line.amount, coa_object_hierarchy.object_group, stars_districts.district_name]
     pivots: [coa_object_hierarchy.object_group]
     filters:
-      stars_locations.location_type: "-Charter School"
       coa_fund_hierarchy.fund_group: General Fund
     sorts: [coa_object_hierarchy.object_group, stars_districts.district_name]
     limit: 4
@@ -66,10 +65,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 59
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 69
     col: 0
     width: 24
     height: 9
@@ -82,8 +81,6 @@
       stars_locations.g2_pop, stars_locations.g3_pop, stars_locations.g4_pop, stars_locations.g5_pop,
       stars_locations.g6_pop, stars_locations.g7_pop, stars_locations.g8_pop, stars_locations.g9_pop,
       stars_locations.g10_pop, stars_locations.g11_pop, stars_locations.g12_pop, stars_districts.district_name]
-    filters:
-      stars_locations.location_type: "-Charter School"
     sorts: [stars_districts.district_name]
     limit: 4
     x_axis_gridlines: false
@@ -137,10 +134,10 @@
       stars_locations.g12_pop: G12
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 29
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 31
     col: 11
     width: 13
     height: 10
@@ -151,19 +148,17 @@
       explore: actuals_revenue_line
       type: table
       fields: [actuals_revenue_line.amount, stars_districts.district_name]
-      filters:
-        stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 4
+      column_limit: 50
       join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_line
       type: table
       fields: [actuals_line.amount, stars_districts.district_name, stars_districts.count]
-      filters:
-        stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 500
+      column_limit: 50
       dynamic_fields: [{table_calculation: state_avg_district_spending_without_abq,
           label: State Avg District Spending without ABQ, expression: "sum(case(when(${stars_districts.district_name}=\"\
             ALBUQUERQUE\", 0.0), ${actuals_line.amount}))\n/sum(case (when (${stars_districts.district_name}=\"\
@@ -181,9 +176,9 @@
       fields: [actuals_line.amount, stars_districts.district_name]
       filters:
         stars_districts.district_name: "-NULL"
-        stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 4
+      column_limit: 50
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -243,16 +238,16 @@
     sorts: [stars_districts.district_name]
     column_limit: 50
     listen:
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    row: 2
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 4
     col: 0
     width: 11
     height: 9
@@ -334,22 +329,22 @@
           - "#068993"
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 29
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 31
     col: 0
     width: 11
     height: 10
-  - title: District Students by Level
-    name: District Students by Level
+  - title: Students by Level
+    name: Students by Level
     model: ped_public_financials_dev
     explore: stars_locations
     type: looker_donut_multiples
     fields: [stars_locations.student_pop, stars_locations.school_level, stars_districts.district_name]
     pivots: [stars_locations.school_level]
     filters:
-      stars_locations.location_type: "-Central Office,-Charter School"
+      stars_locations.location_type: "-Central Office"
     sorts: [stars_locations.school_level, stars_districts.district_name]
     limit: 4
     show_value_labels: true
@@ -390,22 +385,22 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 22
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 24
     col: 11
     width: 13
     height: 7
-  - title: District Schools by Level
-    name: District Schools by Level
+  - title: Schools by Level
+    name: Schools by Level
     model: ped_public_financials_dev
     explore: stars_locations
     type: looker_column
     fields: [stars_locations.school_level, stars_locations.school_count, stars_districts.district_name]
     pivots: [stars_locations.school_level]
     filters:
-      stars_locations.location_type: District School,Offsite
+      stars_locations.location_type: District School,Offsite,Charter School
     sorts: [stars_locations.school_level, stars_districts.district_name]
     limit: 4
     x_axis_gridlines: false
@@ -460,10 +455,10 @@
     charts_across: 4
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 22
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 24
     col: 0
     width: 11
     height: 7
@@ -474,10 +469,9 @@
     type: looker_donut_multiples
     fields: [actuals_line.amount, stars_districts.district_name, coa_fund_hierarchy.fund_group]
     pivots: [coa_fund_hierarchy.fund_group]
-    filters:
-      stars_locations.location_type: "-Charter School"
     sorts: [coa_fund_hierarchy.fund_group, stars_districts.district_name]
     limit: 4
+    column_limit: 50
     show_value_labels: true
     font_size: 15
     charts_across: 4
@@ -532,10 +526,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 50
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 52
     col: 0
     width: 24
     height: 9
@@ -547,7 +541,6 @@
     fields: [actuals_line.amount, stars_districts.district_name, coa_job_class.job_rollup_name]
     pivots: [coa_job_class.job_rollup_name]
     filters:
-      stars_locations.location_type: "-Charter School"
       coa_job_class.job_rollup_name: "-None"
       coa_fund_hierarchy.fund_group: General Fund
     sorts: [coa_job_class.job_rollup_name, stars_districts.district_name]
@@ -604,10 +597,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 68
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 78
     col: 0
     width: 24
     height: 9
@@ -615,7 +608,7 @@
     type: text
     title_text: Students/Schools
     body_text: ''
-    row: 20
+    row: 22
     col: 0
     width: 24
     height: 2
@@ -637,7 +630,7 @@
       fields: [stars_locations.map_location, stars_districts.district_name, stars_locations.School_name,
         stars_locations.school_size_col, stars_locations.student_pop]
       filters:
-        stars_locations.location_type: District School
+        stars_locations.location_type: District School,Charter School
       sorts: [stars_districts.district_name, stars_locations.student_pop desc]
       limit: 500
       column_limit: 4
@@ -671,21 +664,21 @@
     type: looker_map
     column_limit: 50
     listen:
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    row: 2
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 4
     col: 11
-    width: 12
+    width: 13
     height: 12
   - name: Revenue and Expenditures
     type: text
     title_text: Revenue and Expenditures
     body_text: ''
-    row: 39
+    row: 41
     col: 0
     width: 24
     height: 2
@@ -697,7 +690,6 @@
     fields: [coa_fund_hierarchy.fund_group, stars_districts.district_name, actuals_revenue_line.amount]
     pivots: [coa_fund_hierarchy.fund_group]
     filters:
-      stars_locations.location_type: "-Charter School"
       stars_districts.district_name: "-NULL"
     sorts: [coa_fund_hierarchy.fund_group, stars_districts.district_name]
     limit: 4
@@ -756,24 +748,13 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 41
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 43
     col: 0
     width: 24
     height: 9
-  - name: ''
-    type: text
-    title_text: ''
-    body_text: "###The latest fiscal year data shows only the approved quarterly data\
-      \ - it will not show the full year of data until all four quarters have been\
-      \ submitted and approved. Data will be updated throughout the year as it is\
-      \ approved in the Operating Budget Management System."
-    row: 0
-    col: 0
-    width: 24
-    height: 2
   - name: Avg Spending per Student to Date
     title: Avg Spending per Student to Date
     note_state: collapsed
@@ -788,31 +769,33 @@
     - model: ped_public_financials_dev
       explore: actuals_line
       type: table
-      fields: [actuals_line.amount, stars_districts.district_name, stars_districts.public_student_pop]
+      fields: [actuals_line.amount, stars_districts.district_name, stars_districts.total_student_pop]
       filters:
-        stars_locations.location_type: "-Charter School"
         stars_districts.district_name: "-NULL"
+        coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
       sorts: [stars_districts.district_name]
       limit: 4
-      dynamic_fields: [{table_calculation: avg_total_spend, label: Avg total spend,
-          expression: "${actuals_line.amount}/${stars_districts.public_student_pop}",
-          value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
-          _type_hint: number}]
+      column_limit: 50
+      dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
+          label: Avg total spend, value_format: !!null '', value_format_name: usd_0,
+          _kind_hint: measure, table_calculation: avg_total_spend, _type_hint: number}]
+      hidden_pivots: {}
       join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_line
       type: table
-      fields: [actuals_line.amount, stars_districts.district_name, stars_districts.public_student_pop]
+      fields: [actuals_line.amount, stars_districts.district_name, stars_districts.total_student_pop]
       filters:
-        stars_locations.location_type: "-Charter School"
-        coa_function_hierarchy.rollup_function_name: Instruction
+        coa_function_hierarchy.rollup_function_name: Instruction & Support
         stars_districts.district_name: "-NULL"
+        coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
       sorts: [stars_districts.district_name]
       limit: 4
-      dynamic_fields: [{table_calculation: avg_instructional_spend, label: Avg instructional
-            spend, expression: "${actuals_line.amount}/${stars_districts.public_student_pop}",
-          value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
-          _type_hint: number}]
+      column_limit: 50
+      dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
+          label: Avg instructional spend, value_format: !!null '', value_format_name: usd_0,
+          _kind_hint: measure, table_calculation: avg_instructional_spend, _type_hint: number}]
+      hidden_pivots: {}
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -820,8 +803,11 @@
       explore: actuals_line
       type: table
       fields: [actuals_line.amount, stars_districts.total_student_pop, stars_districts.district_name]
+      filters:
+        coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
       sorts: [actuals_line.amount desc]
       limit: 500
+      column_limit: 50
       dynamic_fields: [{table_calculation: state_avg_spend_per_student, label: State
             Avg Spend per Student, expression: 'sum(${actuals_line.amount})/sum(${stars_districts.total_student_pop})',
           value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
@@ -834,9 +820,11 @@
       type: table
       fields: [actuals_line.amount, stars_districts.total_student_pop, stars_districts.district_name]
       filters:
-        coa_function_hierarchy.rollup_function_name: Instruction
+        coa_function_hierarchy.rollup_function_name: Instruction & Support
+        coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
       sorts: [actuals_line.amount desc]
       limit: 500
+      column_limit: 50
       dynamic_fields: [{table_calculation: state_avg_instructional_spending_per_student,
           label: State Avg Instructional Spending per Student, expression: 'sum(${actuals_line.amount})/sum(${stars_districts.total_student_pop})',
           value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
@@ -887,26 +875,27 @@
     show_silhouette: false
     totals_color: "#808080"
     hidden_fields: [actuals_line.amount, q1_stars_locations.student_pop, q1_actuals_line.amount,
-      stars_districts.public_student_pop, q1_stars_districts.public_student_pop, q2_actuals_line.amount,
-      stars_districts.total_student_pop, q3_stars_districts.total_student_pop, q3_actuals_line.amount]
+      q1_stars_districts.public_student_pop, q2_actuals_line.amount, stars_districts.total_student_pop,
+      q3_stars_districts.total_student_pop, q3_actuals_line.amount, q1_stars_districts.total_student_pop,
+      q2_stars_districts.total_student_pop]
     type: looker_column
     column_limit: 50
     listen:
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_districts.District_Custom_Map
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    row: 14
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 16
     col: 0
-    width: 23
+    width: 24
     height: 6
   - title: Actual Expenditures for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures for Special Ed, At-Risk and Bilingual Programs
@@ -916,7 +905,6 @@
     fields: [actuals_line.amount, stars_districts.district_name, coa_program_hierarchy.program_name]
     pivots: [coa_program_hierarchy.program_name]
     filters:
-      stars_locations.location_type: "-Charter School"
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,Bilingual
         Education Programs,At-Risk Special Ed Programs,Extended Learning Time Programs,K-5
         Plus Programs,Special Ed Programs
@@ -976,10 +964,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.District_Custom_Map
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 77
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.District_Custom_Map
+    row: 87
     col: 0
     width: 24
     height: 9
@@ -989,8 +977,6 @@
     explore: actuals_line
     type: looker_grid
     fields: [actuals_budget_period.reporting_period_code, stars_districts.district_name]
-    filters:
-      stars_locations.location_type: "-Charter School"
     sorts: [stars_districts.district_name]
     limit: 4
     show_view_names: false
@@ -1047,13 +1033,142 @@
     series_types: {}
     title_hidden: true
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
       District Type: stars_districts.district_type
-    row: 11
+      Fiscal Year: budget_year.year_name
+    row: 13
     col: 0
     width: 11
     height: 3
+  - title: Actual Expenditures by Function Category
+    name: Actual Expenditures by Function Category
+    model: ped_public_financials_dev
+    explore: actuals_line
+    type: looker_donut_multiples
+    fields: [actuals_line.amount, coa_function_hierarchy.rollup_function_name, stars_districts.district_name]
+    pivots: [coa_function_hierarchy.rollup_function_name]
+    filters: {}
+    sorts: [coa_function_hierarchy.rollup_function_name, stars_districts.district_name]
+    limit: 4
+    column_limit: 50
+    show_value_labels: true
+    font_size: 13
+    charts_across: 4
+    hide_legend: false
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
+      options:
+        steps: 5
+        reverse: false
+    series_colors:
+      Assistants: "#e3e3e3"
+      percent_of_total_expenditures: "#000000"
+      Debt Service - actuals_line.amount: "#F15922"
+      Federal Grants - actuals_line.amount: "#068993"
+      Food Services - actuals_line.amount: "#A85573"
+      General Fund - actuals_line.amount: "#A8876C"
+      State and Local Grants - actuals_line.amount: "#F2C73C"
+    series_labels:
+      actuals_line.amount: Expenditures
+      percent_of_total_expenditures: Percent of Total
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: circle
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: true
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
+        valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}, {label: !!null '', orientation: bottom, series: [{axisId: percent_of_total_expenditures,
+            id: percent_of_total_expenditures, name: Percent of Total Expenditures}],
+        showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
+        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    label_value_format: ''
+    series_types: {}
+    series_point_styles:
+      percent_of_total_expenditures: diamond
+    value_labels: labels
+    label_type: labPer
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    size_to_fit: true
+    series_cell_visualizations:
+      actuals_line.amount:
+        is_active: true
+    table_theme: white
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    rotation: false
+    defaults_version: 1
+    show_null_points: true
+    interpolation: linear
+    up_color: "#FCCF41"
+    down_color: "#7CC8FA"
+    total_color: "#f56776"
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    hide_totals: false
+    hide_row_totals: false
+    hidden_pivots: {}
+    listen:
+      District Type: stars_districts.district_type
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_districts.district_name
+    row: 61
+    col: 0
+    width: 24
+    height: 8
+  - name: ''
+    type: text
+    title_text: ''
+    subtitle_text: ''
+    body_text: '[{"type":"h1","children":[{"text":"District Comparison Overview"}],"align":"center"},{"type":"h3","align":"left","children":[{"text":"Overview
+      of district education finances in comparison - includes all district and local
+      charter students, all district and local charter schools. To learn more about
+      the data displayed or to find definitions of terms please click "},{"type":"a","url":"https://openbooks.ped.nm.gov/learn-more/","children":[{"text":"here"}],"id":1686247788899},{"text":"."}],"id":1686251562647},{"type":"h3","children":[{"text":"\nBudgeted
+      amounts cover the entire school year. Year-to-date actual revenue and expenditure
+      amounts are updated throughout the year as they are submitted and approved in
+      the Operating Budget Management System. Starting with the 2022-2023 school year,
+      acutal expenditure amounts will be available for individual district schools.
+      "}],"id":1686251562647},{"type":"p","children":[{"text":"\n\n"}],"id":1686251562647}]'
+    rich_content_json: '{"format":"slate"}'
+    row: 0
+    col: 0
+    width: 24
+    height: 4
   filters:
   - name: District Type
     title: District Type

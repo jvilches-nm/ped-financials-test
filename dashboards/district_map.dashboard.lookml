@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: xPnLa1vknfXqpXNDKg0lvA
+  preferred_slug: TjZ640CuYwZW6uJr855sNy
   embed_style:
     background_color: "#f6f8fa"
     show_title: false
@@ -93,15 +93,16 @@
     model: ped_public_financials_dev
     explore: actuals_line
     type: looker_map
-    fields: [stars_districts.District_Custom_Map, actuals_line.amount, stars_districts.public_student_pop]
+    fields: [stars_districts.District_Custom_Map, actuals_line.amount, stars_districts.total_student_pop]
     filters:
-      budget_year.year_name: ''
+      budget_year.year_name: 2022-2023
       stars_districts.district_name: "-NULL"
       stars_districts.district_type: State District
-      stars_locations.location_type: "-Charter School"
+      coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
     sorts: [avg_spending_per_student desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.public_student_pop}",
+    column_limit: 50
+    dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
         label: Avg Spending per Student, value_format: !!null '', value_format_name: usd_0,
         _kind_hint: measure, table_calculation: avg_spending_per_student, _type_hint: number}]
     map_plot_mode: points
@@ -132,7 +133,13 @@
     map_value_scale_clamp_min: 5000
     map_value_scale_clamp_max: 25000
     defaults_version: 1
-    hidden_fields: [actuals_line.amount, stars_districts.public_student_pop]
+    hidden_fields: [actuals_line.amount, stars_districts.total_student_pop]
+    hidden_pivots: {}
+    note_state: collapsed
+    note_display: hover
+    note_text: Avg spending per student reflects total year-to-date approved expenditures,
+      excluding Captial and Debt Service funds, divided by the total number of students
+      enrolled in the district at the 40-day school year count.
     listen:
       Fiscal Year: stars_locations.location_year
     row: 0
@@ -142,7 +149,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"p","children":[{"text":"Average spending per student reflects
       the total district expenditures for the selected school year not including capital
       or debt service funds divided by the number of district students based on the

@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: XY0FZ8y0XB3QMXbCrm8wsN
+  preferred_slug: E938PMmnOdc2WNOWmn79DD
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -28,9 +28,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 6
+      Select School Name: stars_locations.School_name_plain
+    row: 13
     col: 9
     width: 6
     height: 3
@@ -79,12 +79,12 @@
     hidden_fields: [stars_locations.location_type, stars_locations.student_pop]
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 3
+      Select School Name: stars_locations.School_name_plain
+    row: 4
     col: 15
     width: 9
-    height: 12
+    height: 13
   - title: Actual Expenditures by Object and Fund Category
     name: Actual Expenditures by Object and Fund Category
     model: ped_public_financials_dev
@@ -141,12 +141,12 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 34
+      Select School Name: stars_locations.School_name_plain
+    row: 53
     col: 8
     width: 16
-    height: 8
+    height: 7
   - title: Students by Grade
     name: Students by Grade
     model: ped_public_financials_dev
@@ -211,9 +211,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 17
+      Select School Name: stars_locations.School_name_plain
+    row: 21
     col: 0
     width: 24
     height: 7
@@ -326,12 +326,12 @@
     series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 3
+      Select School Name: stars_locations.School_name_plain
+    row: 4
     col: 0
     width: 9
-    height: 12
+    height: 13
   - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
     name: Actual Expenditures by Job and Fund Category for Salary/Compensation
     model: ped_public_financials_dev
@@ -394,17 +394,17 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 42
+      Select School Name: stars_locations.School_name_plain
+    row: 60
     col: 8
     width: 16
-    height: 8
+    height: 7
   - name: Students
     type: text
     title_text: Students
     body_text: ''
-    row: 15
+    row: 19
     col: 0
     width: 24
     height: 2
@@ -458,18 +458,19 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 26
+      Select School Name: stars_locations.School_name_plain
+    row: 38
     col: 12
     width: 12
     height: 8
   - name: Revenue and Expenditures
     type: text
     title_text: Revenue and Expenditures
-    subtitle_text: "* Revenue available at the school level for charter schools only."
+    subtitle_text: "* Budget and revenue available at the individual school level\
+      \ for charter schools only."
     body_text: ''
-    row: 24
+    row: 28
     col: 0
     width: 24
     height: 2
@@ -496,9 +497,9 @@
     note_text: Applies to Charter Schools, not to District Schools.
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 3
+      Select School Name: stars_locations.School_name_plain
+    row: 7
     col: 9
     width: 6
     height: 3
@@ -563,30 +564,20 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 26
+      Select School Name: stars_locations.School_name_plain
+    row: 38
     col: 0
     width: 12
     height: 8
-  - name: School Overview
-    type: text
-    title_text: School Overview
-    body_text: |-
-      ###The current fiscal year shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
-
-      ###Starting 2022-2023, Approved Year-to-Date Actual data will be displayed for District Schools. School level financials are only available for charter schools prior to the 2022-2023 school year.
-
-    row: 0
-    col: 0
-    width: 24
-    height: 3
   - title: Avg Spending per Student to Date
     name: Avg Spending per Student to Date
     model: ped_public_financials_dev
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_locations.student_pop]
+    filters:
+      coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
     limit: 500
     column_limit: 50
     dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
@@ -640,25 +631,26 @@
     series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 11
-    col: 9
-    width: 6
+      Select School Name: stars_locations.School_name_plain
+    row: 17
+    col: 8
+    width: 8
     height: 2
-  - title: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
-    name: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
+  - title: Actual Expenditures by Object for Special Ed, At-Risk and Bilingual Prog
+    name: Actual Expenditures by Object for Special Ed, At-Risk and Bilingual Prog
     model: ped_public_financials_dev
     explore: actuals_line
     type: looker_bar
-    fields: [coa_program_hierarchy.program_name, actuals_line.amount, coa_function_hierarchy.rollup_function_name]
-    pivots: [coa_function_hierarchy.rollup_function_name]
+    fields: [coa_program_hierarchy.program_name, actuals_line.amount, coa_object_hierarchy.object_group]
+    pivots: [coa_object_hierarchy.object_group]
     filters:
       coa_program_hierarchy.program_name: Bilingual Education Programs,Alternative
         and At-Risk Programs,At-Risk Special Ed Programs,Extended Learning Time Programs,K-5
         Plus Programs,Special Ed Programs
-    sorts: [actuals_line.amount desc 2, coa_function_hierarchy.rollup_function_name]
+    sorts: [coa_object_hierarchy.object_group, actuals_line.amount desc 0]
     limit: 500
+    column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -693,6 +685,7 @@
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
     x_axis_zoom: true
     y_axis_zoom: true
+    hide_legend: false
     series_types: {}
     series_colors:
       actuals_line.amount: "#068993"
@@ -700,14 +693,15 @@
       Support Services - actuals_line.amount: "#F2C73C"
       Operation of Non-Instructional Services - actuals_line.amount: "#A85573"
     defaults_version: 1
+    hidden_pivots: {}
     listen:
-      Location Type: stars_locations.location_type_name
       Select School Name: stars_locations.School_name_plain
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
-    row: 50
+    row: 67
     col: 0
     width: 24
-    height: 8
+    height: 9
   - title: Avg Instructional Spending per Student to Date
     name: Avg Instructional Spending per Student to Date
     model: ped_public_financials_dev
@@ -715,7 +709,8 @@
     type: single_value
     fields: [actuals_line.amount, stars_locations.student_pop]
     filters:
-      coa_function_hierarchy.rollup_function_name: Instruction
+      coa_function_hierarchy.rollup_function_name: Instruction & Support
+      coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
     limit: 500
     column_limit: 50
     dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
@@ -769,11 +764,11 @@
     series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 13
-    col: 9
-    width: 6
+      Select School Name: stars_locations.School_name_plain
+    row: 17
+    col: 17
+    width: 7
     height: 2
   - title: Actual Expenditures by Job for Salary/Compensation
     name: Actual Expenditures by Job for Salary/Compensation
@@ -833,12 +828,12 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 42
+      Select School Name: stars_locations.School_name_plain
+    row: 60
     col: 0
     width: 8
-    height: 8
+    height: 7
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
     model: ped_public_financials_dev
@@ -897,12 +892,12 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 34
+      Select School Name: stars_locations.School_name_plain
+    row: 53
     col: 0
     width: 8
-    height: 8
+    height: 7
   - title: Financial Approval Status
     name: Financial Approval Status
     model: ped_public_financials_dev
@@ -950,12 +945,455 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Select School Name: stars_locations.School_name_plain
       Fiscal Year: budget_year.year_name
-    row: 9
+      Select School Name: stars_locations.School_name_plain
+    row: 17
+    col: 0
+    width: 7
+    height: 2
+  - title: Budgeted Revenue
+    name: Budgeted Revenue
+    model: ped_public_financials_dev
+    explore: budget_revenue_line
+    type: single_value
+    fields: [budget_revenue_line.projected_amt]
+    filters:
+      coa_object_hierarchy_revenue.object_code: "-1%"
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#A85573"
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    defaults_version: 1
+    series_types: {}
+    note_state: collapsed
+    note_display: hover
+    note_text: Applies to Charter Schools, not to District Schools. Does not include
+      restricted or unrestricted cash balances.
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 4
     col: 9
     width: 6
-    height: 2
+    height: 3
+  - title: Budgeted Expenditures
+    name: Budgeted Expenditures
+    model: ped_public_financials_dev
+    explore: budget_line
+    type: single_value
+    fields: [budget_line.budget_amount]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#F15922"
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    defaults_version: 1
+    series_types: {}
+    note_state: collapsed
+    note_display: hover
+    note_text: Applies to Charter Schools, not to District Schools.
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 10
+    col: 9
+    width: 6
+    height: 3
+  - title: Budgeted Revenue by Fund Category
+    name: Budgeted Revenue by Fund Category
+    model: ped_public_financials_dev
+    explore: budget_revenue_line
+    type: looker_bar
+    fields: [budget_revenue_line.projected_amt, coa_fund_hierarchy.fund_group]
+    filters:
+      coa_object_hierarchy_revenue.object_code: "-1%"
+    sorts: [coa_fund_hierarchy.fund_group desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields: [{category: table_calculation, expression: "${budget_revenue_line.projected_amt}/sum(${budget_revenue_line.projected_amt})",
+        label: Percent of Total, value_format: !!null '', value_format_name: percent_2,
+        _kind_hint: measure, table_calculation: percent_of_total, _type_hint: number}]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: budget_revenue_line.projected_amt,
+            id: budget_revenue_line.projected_amt, name: Budgeted Revenue}, {axisId: percent_of_total,
+            id: percent_of_total, name: Percent of Total}], showLabels: false, showValues: true,
+        valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_types: {}
+    series_colors:
+      budget_revenue_line.projected_amt: "#853955"
+    defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: Does not include restricted or unrestricted cash balances.
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 30
+    col: 0
+    width: 12
+    height: 8
+  - title: Budgeted Expenditures by Fund Category
+    name: Budgeted Expenditures by Fund Category
+    model: ped_public_financials_dev
+    explore: budget_line
+    type: looker_bar
+    fields: [budget_line.budget_amount, coa_fund_hierarchy.fund_group]
+    sorts: [coa_fund_hierarchy.fund_group desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields: [{category: table_calculation, expression: "${budget_line.budget_amount}/sum(${budget_line.budget_amount})",
+        label: Percent of Total, value_format: !!null '', value_format_name: percent_2,
+        _kind_hint: measure, table_calculation: percent_of_total, _type_hint: number}]
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: budget_line.budget_amount,
+            id: budget_line.budget_amount, name: Budgeted Expenditures}, {axisId: percent_of_total,
+            id: percent_of_total, name: Percent of Total}], showLabels: true, showValues: true,
+        valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_types: {}
+    x_axis_datetime_label: ''
+    defaults_version: 1
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 30
+    col: 12
+    width: 12
+    height: 8
+  - title: Actual Expenditures by Function and Fund Category
+    name: Actual Expenditures by Function and Fund Category
+    model: ped_public_financials_dev
+    explore: actuals_line
+    type: looker_bar
+    fields: [actuals_line.amount, coa_fund_hierarchy.fund_group, coa_function_hierarchy.rollup_function_name]
+    pivots: [coa_fund_hierarchy.fund_group]
+    sorts: [actuals_line.amount desc 3, coa_fund_hierarchy.fund_group]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: circle
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: true
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
+      options:
+        steps: 5
+        reverse: false
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
+        valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}, {label: !!null '', orientation: bottom, series: [{axisId: percent_of_total_expenditures,
+            id: percent_of_total_expenditures, name: Percent of Total Expenditures}],
+        showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
+        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    hide_legend: false
+    label_value_format: ''
+    series_types:
+      percent_of_total_expenditures: scatter
+    series_colors:
+      Assistants: "#e3e3e3"
+      percent_of_total_expenditures: "#000000"
+      Debt Service - actuals_line.amount: "#F15922"
+      Federal Grants - actuals_line.amount: "#068993"
+      Food Services - actuals_line.amount: "#A85573"
+      General Fund - actuals_line.amount: "#A8876C"
+      State and Local Grants - actuals_line.amount: "#F2C73C"
+    series_labels:
+      actuals_line.amount: Expenditures
+      percent_of_total_expenditures: Percent of Total
+    series_point_styles:
+      percent_of_total_expenditures: diamond
+    value_labels: labels
+    label_type: labPer
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    size_to_fit: true
+    series_cell_visualizations:
+      actuals_line.amount:
+        is_active: true
+    table_theme: white
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    rotation: false
+    defaults_version: 1
+    show_null_points: true
+    interpolation: linear
+    up_color: "#FCCF41"
+    down_color: "#7CC8FA"
+    total_color: "#f56776"
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    hide_totals: false
+    hide_row_totals: false
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 46
+    col: 8
+    width: 16
+    height: 7
+  - title: Actual Expenditures by Function Category
+    name: Actual Expenditures by Function Category
+    model: ped_public_financials_dev
+    explore: actuals_line
+    type: looker_pie
+    fields: [actuals_line.amount, coa_function_hierarchy.rollup_function_name]
+    sorts: [actuals_line.amount desc]
+    limit: 500
+    column_limit: 50
+    value_labels: labels
+    label_type: labPer
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
+      options:
+        steps: 5
+        reverse: false
+    series_colors:
+      Assistants: "#e3e3e3"
+      percent_of_total_expenditures: "#000000"
+      Debt Service - actuals_line.amount: "#F15922"
+      Federal Grants - actuals_line.amount: "#068993"
+      Food Services - actuals_line.amount: "#A85573"
+      General Fund - actuals_line.amount: "#A8876C"
+      State and Local Grants - actuals_line.amount: "#F2C73C"
+    series_labels:
+      actuals_line.amount: Expenditures
+      percent_of_total_expenditures: Percent of Total
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: circle
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: true
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
+        valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}, {label: !!null '', orientation: bottom, series: [{axisId: percent_of_total_expenditures,
+            id: percent_of_total_expenditures, name: Percent of Total Expenditures}],
+        showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
+        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    hide_legend: false
+    label_value_format: ''
+    series_types: {}
+    series_point_styles:
+      percent_of_total_expenditures: diamond
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    size_to_fit: true
+    series_cell_visualizations:
+      actuals_line.amount:
+        is_active: true
+    table_theme: white
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    rotation: false
+    defaults_version: 1
+    show_null_points: true
+    interpolation: linear
+    up_color: "#FCCF41"
+    down_color: "#7CC8FA"
+    total_color: "#f56776"
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    hide_totals: false
+    hide_row_totals: false
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 46
+    col: 0
+    width: 8
+    height: 7
+  - name: ''
+    type: text
+    title_text: ''
+    subtitle_text: ''
+    body_text: '[{"type":"h1","children":[{"text":"School Overview"}],"align":"center"},{"type":"h3","align":"left","children":[{"text":"Overview
+      of individual school education finances. To learn more about the data displayed
+      or to find definitions of terms please click "},{"type":"a","url":"https://openbooks.ped.nm.gov/learn-more/","children":[{"text":"here"}],"id":1686248838730},{"text":"."}],"id":1686249627178},{"type":"p","children":[{"text":""}],"id":1686249627179},{"type":"h3","children":[{"text":"Budgeted
+      amounts cover the entire school year. Year-to-date actual revenue and expenditure
+      amounts are updated throughout the year as they are submitted and approved in
+      the Operating Budget Management System. Starting with the 2022-2023 school year,
+      acutal expenditure amounts will be available for individual district schools.
+      Revenue and budget amounts are only available for charter schools at the individual
+      school level. "}],"id":1686249627180},{"type":"p","children":[{"text":""}],"id":1686249627181}]'
+    rich_content_json: '{"format":"slate"}'
+    row: 0
+    col: 0
+    width: 24
+    height: 4
   filters:
   - name: Location Type
     title: Location Type
@@ -995,7 +1433,7 @@
     required: true
     ui_config:
       type: dropdown_menu
-      display: inline
+      display: popover
     model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: [Fiscal Year, Location Type]
