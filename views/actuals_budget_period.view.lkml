@@ -11,7 +11,7 @@ view: actuals_budget_period {
                 Actuals.ActualsStatus astat
                     ON abp.fkActualsStatus = astat.pkActualsStatus
                 INNER JOIN
-                dbo.budget b
+                budget.budget b
                 on abp.fkbudget = b.pkbudget
                 inner join
                 common.budgetyear y

@@ -6,9 +6,9 @@
                   budget.name budget_name,
                   budget_status.code status_code,
                   budget_status.name status_name
-             FROM dbo.BudgetFund  AS budget_fund
-             INNER JOIN dbo.Budget  AS budget ON budget_fund.fkBudget=budget.pkBudget
-             INNER JOIN dbo.BudgetStatus  AS budget_status ON budget.fkBudgetStatus=budget_status.pkBudgetStatus
+             FROM budget.BudgetFund  AS budget_fund
+             INNER JOIN budget.Budget  AS budget ON budget_fund.fkBudget=budget.pkBudget
+             INNER JOIN budget.BudgetStatus  AS budget_status ON budget.fkBudgetStatus=budget_status.pkBudgetStatus
              INNER JOIN Common.BudgetYear  AS budget_year ON budget.fkBudgetYear=budget_year.pkBudgetYear
              WHERE YEAR(budget_year.StartDate)>=2020
                AND budget_status.code in ('FB', 'BS') ;;
