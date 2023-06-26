@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: UBTWirg8JCpFX84T3qI4gC
+  preferred_slug: dz6dLhnqbink7ZxDSQo2BR
   elements:
   - title: Spending
     name: Spending
@@ -456,7 +456,6 @@
       sorts: [stars_districts.district_name]
       limit: 500
       column_limit: 50
-      hidden_pivots: {}
       join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1241,6 +1240,7 @@
     pivots: [coa_fund_hierarchy.fund_group]
     sorts: [actuals_line.amount desc 3, coa_fund_hierarchy.fund_group]
     limit: 500
+    column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1278,11 +1278,14 @@
             id: State and Local Grants - actuals_line.amount, name: State and Local
               Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     hide_legend: false
     series_types: {}
     series_colors:
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
+      Other - actuals_line.amount: "#9B2030"
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
@@ -1336,12 +1339,15 @@
               Local Grants - actuals_line.amount, id: State and Local Grants - actuals_line.amount,
             name: State and Local Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     series_types: {}
     series_colors:
-      Federal Grants - actuals_line.amount: "#068993"
-      Food Services - actuals_line.amount: "#A85573"
+      Federal Grants - actuals_line.amount: "#F15922"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
+      Other - actuals_line.amount: "#9B2030"
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
@@ -1664,7 +1670,7 @@
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
-      type: looker_column
+      type: table
       fields: [actuals_line.amount, budget_year.year_name]
       filters:
         coa_function_hierarchy.rollup_function_name: Instruction & Support
@@ -1672,34 +1678,6 @@
       sorts: [actuals_line.amount desc 0]
       limit: 500
       column_limit: 50
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields: []
     - model: ped_public_financials_dev
       explore: stars_locations
@@ -1798,7 +1776,7 @@
     series_types: {}
     note_state: collapsed
     note_display: hover
-    note_text: Does not include reserved or unreserved cash balances.
+    note_text: Does not include restricted or unrestricted cash balances.
     listen:
       Fiscal Year: budget_year.year_name
     row: 4
@@ -1954,39 +1932,11 @@
       join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_revenue_line
-      type: looker_column
+      type: table
       fields: [budget_year.year_name, actuals_revenue_line.amount]
       sorts: [budget_year.year_name]
       limit: 500
       column_limit: 50
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields:
       - field_name: budget_year.year_name
         source_field_name: budget_year.year_name
@@ -2036,6 +1986,7 @@
     show_silhouette: false
     totals_color: "#808080"
     type: looker_bar
+    column_limit: 50
     dynamic_fields: [{category: table_calculation, expression: "${actuals_revenue_line.amount}/${budget_revenue_line.projected_amt}",
         label: Actual Revenue to Budgeted Revenue, value_format: !!null '', value_format_name: percent_2,
         _kind_hint: measure, table_calculation: actual_revenue_to_budgeted_revenue,
@@ -2052,77 +2003,19 @@
     merged_queries:
     - model: ped_public_financials_dev
       explore: budget_line
-      type: looker_bar
+      type: table
       fields: [budget_line.budget_amount, budget_year.year_name]
       sorts: [budget_line.budget_amount desc 0]
       limit: 500
       column_limit: 50
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      series_types: {}
-      defaults_version: 1
       join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_line
-      type: looker_column
+      type: table
       fields: [budget_year.year_name, actuals_line.amount]
       sorts: [budget_year.year_name]
       limit: 500
       column_limit: 50
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
-      hidden_pivots: {}
       join_fields:
       - field_name: budget_year.year_name
         source_field_name: budget_year.year_name
@@ -2172,6 +2065,7 @@
     show_silhouette: false
     totals_color: "#808080"
     type: looker_bar
+    column_limit: 50
     dynamic_fields: [{category: table_calculation, expression: "${actuals_line.amount}/${budget_line.budget_amount}",
         label: Actual Expenditures to Budget Expenditures, value_format: !!null '',
         value_format_name: percent_2, _kind_hint: measure, table_calculation: actual_expenditures_to_budget_expenditures,
@@ -2233,6 +2127,8 @@
             id: percent_of_total_expenditures, name: Percent of Total Expenditures}],
         showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     hide_legend: false
     label_value_format: ''
     series_types:
@@ -2241,8 +2137,8 @@
       Assistants: "#e3e3e3"
       percent_of_total_expenditures: "#000000"
       Debt Service - actuals_line.amount: "#F15922"
-      Federal Grants - actuals_line.amount: "#068993"
-      Food Services - actuals_line.amount: "#A85573"
+      Federal Grants - actuals_line.amount: "#F15922"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
     series_labels:
@@ -2398,7 +2294,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"State Overview"}],"align":"center"},{"type":"h3","align":"left","children":[{"text":"Overview
       of state education finances - includes all district and charter students, all
       district and charter schools, and the regional education cooperatives. To learn

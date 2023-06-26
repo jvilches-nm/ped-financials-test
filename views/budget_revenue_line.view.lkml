@@ -74,6 +74,7 @@ view: budget_revenue_line {
   measure: projected_fte {
     type: sum
     label: "FTE"
+    hidden: yes
     description: "Full Time Equivalents"
     sql: ${TABLE}.ProjectedFTE ;;
   }

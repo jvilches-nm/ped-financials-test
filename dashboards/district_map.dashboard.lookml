@@ -95,7 +95,6 @@
     type: looker_map
     fields: [stars_districts.District_Custom_Map, actuals_line.amount, stars_districts.total_student_pop]
     filters:
-      budget_year.year_name: 2022-2023
       stars_districts.district_name: "-NULL"
       stars_districts.district_type: State District
       coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
@@ -151,10 +150,9 @@
     title_text: ''
     body_text: '[{"type":"p","children":[{"text":"Average spending per student reflects
       the total district expenditures for the selected school year not including capital
-      or debt service funds divided by the number of district students based on the
+      or debt service funds divided by the number of students based on the
       40-day count for that school year. This average should be considered an estimate
-      for comparison purposes and not an actual tally of the spending per student.
-      Charter school expenditures and students are not included in district calculations."}]}]'
+      for comparison purposes and not an actual tally of the spending per student."}]}]'
     rich_content_json: '{"format":"slate"}'
     row: 15
     col: 0

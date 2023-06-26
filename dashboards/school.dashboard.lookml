@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: E938PMmnOdc2WNOWmn79DD
+  preferred_slug: bb8fXG7BZTPSFY92ZFnShl
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -94,6 +94,7 @@
     pivots: [coa_fund_hierarchy.fund_group]
     sorts: [actuals_line.amount desc 3, coa_fund_hierarchy.fund_group]
     limit: 500
+    column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -130,11 +131,14 @@
             id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
         valueFormat: '$0,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     series_types: {}
     series_colors:
       actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
+      Other - actuals_line.amount: "#9B2030"
     series_labels:
       actuals_line.amount: Spending
     x_axis_datetime_label: ''
@@ -384,11 +388,15 @@
               Local Grants - actuals_line.amount, id: State and Local Grants - actuals_line.amount,
             name: State and Local Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     series_types: {}
     series_colors:
-      Food Services - actuals_line.amount: "#A85573"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
+      Federal Grants - actuals_line.amount: "#F15922"
+      Other - actuals_line.amount: "#9B2030"
     value_labels: legend
     label_type: labPer
     defaults_version: 1
@@ -1210,6 +1218,8 @@
             id: percent_of_total_expenditures, name: Percent of Total Expenditures}],
         showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     hide_legend: false
     label_value_format: ''
     series_types:
@@ -1218,8 +1228,8 @@
       Assistants: "#e3e3e3"
       percent_of_total_expenditures: "#000000"
       Debt Service - actuals_line.amount: "#F15922"
-      Federal Grants - actuals_line.amount: "#068993"
-      Food Services - actuals_line.amount: "#A85573"
+      Federal Grants - actuals_line.amount: "#F15922"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
     series_labels:
@@ -1379,7 +1389,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"School Overview"}],"align":"center"},{"type":"h3","align":"left","children":[{"text":"Overview
       of individual school education finances. To learn more about the data displayed
       or to find definitions of terms please click "},{"type":"a","url":"https://openbooks.ped.nm.gov/learn-more/","children":[{"text":"here"}],"id":1686248838730},{"text":"."}],"id":1686249627178},{"type":"p","children":[{"text":""}],"id":1686249627179},{"type":"h3","children":[{"text":"Budgeted
@@ -1433,7 +1442,7 @@
     required: true
     ui_config:
       type: dropdown_menu
-      display: popover
+      display: inline
     model: ped_public_financials_dev
     explore: stars_locations
     listens_to_filters: [Fiscal Year, Location Type]

@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: vMzgDbDucgOx6ZaHJsKHy6
+  preferred_slug: 7TcWjGeURVyUDZS3QdTs2i
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -81,14 +81,17 @@
             id: actuals_line.amount, name: Spends}], showLabels: false, showValues: true,
         valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     hide_legend: false
     label_value_format: ''
     series_types: {}
     series_colors:
       Assistants: "#e3e3e3"
       State and Local Grants - actuals_line.amount: "#F2C73C"
-      Food Services - actuals_line.amount: "#A85573"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
+      Federal Grants - actuals_line.amount: "#F15922"
     series_labels:
       actuals_line.amount: Spends
     value_labels: legend
@@ -132,7 +135,7 @@
     row: 59
     col: 7
     width: 17
-    height: 6
+    height: 7
   - title: School Types and Levels
     name: School Types and Levels
     model: ped_public_financials_dev
@@ -493,9 +496,6 @@
     defaults_version: 1
     hidden_fields: [stars_locations.count]
     series_types: {}
-    note_state: expanded
-    note_display: hover
-    note_text: Not included in financial totals or averages.
     listen:
       District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
@@ -544,7 +544,7 @@
     type: text
     title_text: School List
     body_text: ''
-    row: 72
+    row: 73
     col: 0
     width: 24
     height: 2
@@ -640,7 +640,7 @@
     - District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
       'District:': stars_districts.District_Custom_Map
-    row: 74
+    row: 75
     col: 0
     width: 24
     height: 6
@@ -704,8 +704,8 @@
       Assistants: "#e3e3e3"
       percent_of_total_expenditures: "#000000"
       Debt Service - actuals_line.amount: "#F15922"
-      Federal Grants - actuals_line.amount: "#068993"
-      Food Services - actuals_line.amount: "#A85573"
+      Federal Grants - actuals_line.amount: "#F15922"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
       Capital Outlay - actuals_line.amount: "#3F6173"
@@ -774,9 +774,6 @@
     conditional_formatting_include_nulls: false
     single_value_title: Local Charter Students
     defaults_version: 1
-    note_state: collapsed
-    note_display: hover
-    note_text: Not included in student totals below or average spending calculations.
     listen:
       District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
@@ -792,7 +789,6 @@
     type: single_value
     fields: [actuals_revenue_line.amount]
     limit: 500
-    column_limit: 50
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -936,7 +932,7 @@
       District Type: stars_districts.district_type
       Fiscal Year: budget_year.year_name
       'District:': stars_districts.District_Custom_Map
-    row: 65
+    row: 66
     col: 0
     width: 24
     height: 7
@@ -1144,7 +1140,7 @@
     row: 59
     col: 0
     width: 7
-    height: 6
+    height: 7
   - title: Financial Approval Status
     name: Financial Approval Status
     model: ped_public_financials_dev
@@ -1237,7 +1233,7 @@
       capital or debt service funds divided by the number of district students based
       on the 40-day count for that school year. This average should be considered
       an estimate for comparison purposes and not an actual tally of the spending
-      per student. Charter students and expenditures are not included in these calculations.
+      per student.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1257,7 +1253,6 @@
       sorts: [stars_districts.total_student_pop desc 0]
       limit: 500
       column_limit: 50
-      hidden_pivots: {}
       join_fields:
       - field_name: budget_year.year_name
         source_field_name: budget_year.year_name
@@ -1288,8 +1283,7 @@
       school year not including capital or debt service funds divided by the number
       of district students based on the 40-day count for that school year. This average
       should be considered an estimate for comparison purposes and not an actual tally
-      of the spending per student. Charter students and expenditures are not included
-      in these calculations.
+      of the spending per student.
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -1309,7 +1303,6 @@
       sorts: [stars_districts.total_student_pop desc 0]
       limit: 500
       column_limit: 50
-      hidden_pivots: {}
       join_fields:
       - field_name: budget_year.year_name
         source_field_name: budget_year.year_name
@@ -1694,6 +1687,8 @@
             id: percent_of_total_expenditures, name: Percent of Total Expenditures}],
         showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_zoom: true
+    y_axis_zoom: true
     hide_legend: false
     label_value_format: ''
     series_types:
@@ -1702,8 +1697,8 @@
       Assistants: "#e3e3e3"
       percent_of_total_expenditures: "#000000"
       Debt Service - actuals_line.amount: "#F15922"
-      Federal Grants - actuals_line.amount: "#068993"
-      Food Services - actuals_line.amount: "#A85573"
+      Federal Grants - actuals_line.amount: "#F15922"
+      Food Services - actuals_line.amount: "#068993"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
     series_labels:
@@ -1756,7 +1751,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"District Overview"}],"align":"center"},{"type":"h3","align":"left","children":[{"text":"Overview
       of district education finances - includes all district and local charter students,
       all district and local charter schools. To learn more about the data displayed

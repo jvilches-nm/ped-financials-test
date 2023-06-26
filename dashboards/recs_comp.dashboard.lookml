@@ -1,5 +1,5 @@
 - dashboard: recs_comp
-  title: REC Comparisons DEV
+  title: REC Comparison DEV
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''

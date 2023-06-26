@@ -1,6 +1,6 @@
- view: budget_fund {
-   derived_table: {
-     sql: SELECT budget_fund.pkbudgetfund,
+view: budget_fund {
+  derived_table: {
+    sql: SELECT budget_fund.pkbudgetfund,
                   budget_fund.fkbudget,
                   budget.fkbudgetyear,
                   budget.name budget_name,
@@ -14,16 +14,16 @@
                AND budget_status.code in ('FB', 'BS') ;;
     datagroup_trigger: ped_public_financials_test_datagroup
     indexes: ["pkbudgetfund", "fkbudget", "fkbudgetyear"]
-   }
+  }
 
-   label: "Budget"
+  label: "Budget"
 
-   dimension: pk_budget_fund {
-     type: number
-     primary_key: yes
-     hidden: yes
-     sql: ${TABLE}.pkbudgetfund ;;
-   }
+  dimension: pk_budget_fund {
+    type: number
+    primary_key: yes
+    hidden: yes
+    sql: ${TABLE}.pkbudgetfund ;;
+  }
   dimension: fk_budget {
     type: number
     hidden: yes

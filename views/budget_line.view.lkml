@@ -73,7 +73,7 @@ view: budget_line {
     type: sum
     label: "Budgeted Expenditures"
     value_format: "$#,##0"
-    sql: ${TABLE}.ProjectedAmt ;;
+    sql: ${TABLE}.FinalAmount ;;
     drill_fields: [ucoa_codes*]
   }
 

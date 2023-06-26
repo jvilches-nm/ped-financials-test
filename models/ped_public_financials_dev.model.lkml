@@ -12,9 +12,8 @@ datagroup: ped_public_financials_test_datagroup {
 persist_with: ped_public_financials_test_datagroup
 
 explore: actuals_revenue_line {
-  sql_always_where: ${coa_account_type.code}='R'  ;;
-     # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
-
+  sql_always_where: ${coa_account_type.code}='R';;
+  # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
   label: "Actual Revenue"
 
   join: actuals_budget_period {
@@ -70,8 +69,8 @@ explore: actuals_revenue_line {
 }
 
 explore: actuals_line {
-  sql_always_where: ${coa_account_type.code}='E' ;;
-                  # --  and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+  sql_always_where: ${coa_account_type.code}='E';;
+  # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
   label: "Actual Expenditures"
 
   join: actuals_budget_period {
@@ -143,8 +142,7 @@ explore: actuals_line {
 
 explore: budget_revenue_line {
   sql_always_where: ${coa_account_type.code}='R';;
-                # --    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
-
+  # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
   label: "Budgeted Revenue"
 
   join: budget_fund {
@@ -201,7 +199,7 @@ explore: budget_revenue_line {
 
 explore: budget_line {
   sql_always_where: ${coa_account_type.code}='E';;
-                # --    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
+  # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
   label: "Budgeted Expenditures"
   join: budget_fund {
     relationship: many_to_one
@@ -276,7 +274,7 @@ explore: stars_locations {
     relationship: many_to_one
     type: inner
     sql_on: ${stars_locations.district_id}=${stars_districts.district_id}
-      and ${stars_locations.location_year}=${stars_districts.location_year};;
+        and ${stars_locations.location_year}=${stars_districts.location_year};;
   }
   join: rec_member_districts {
     relationship: one_to_one
@@ -300,14 +298,14 @@ explore: tribal_consultation {
     relationship: many_to_one
     type: left_outer
     sql_on: ${stars_districts.location_year}=${tribal_consultation.school_year}
-       and ${stars_districts.district_id} = ${tribal_consultation.district_code};;
+        and ${stars_districts.district_id} = ${tribal_consultation.district_code};;
   }
   join: stars_locations {
     relationship: many_to_one
     type: left_outer
     sql_on: ${stars_locations.location_year} = ${tribal_consultation.school_year}
-       and ${stars_locations.location_code} = ${tribal_consultation.location_code}
-      and ${tribal_consultation.location_code}!='';;
+        and ${stars_locations.location_code} = ${tribal_consultation.location_code}
+        and ${tribal_consultation.location_code}!='';;
   }
 }
 
@@ -321,16 +319,20 @@ explore: student_outcome_funding_narrative {
     relationship: many_to_one
     type: inner
     sql_on: ${stars_districts.location_year}=${student_outcome_funding_narrative.school_year}
-      and ${stars_districts.district_id} = ${student_outcome_funding_narrative.district_id};;
+        and ${stars_districts.district_id} = ${student_outcome_funding_narrative.district_id};;
   }
   join: stars_locations {
     relationship: many_to_one
     type: inner
     sql_on: ${stars_locations.location_year} = ${student_outcome_funding_narrative.school_year}
-       and ${stars_locations.location_code} = ${student_outcome_funding_narrative.location_code};;
+        and ${stars_locations.location_code} = ${student_outcome_funding_narrative.location_code};;
   }
 
 }
+
+explore: annual_attendance {}
+
+explore: aip_submissions  {}
 
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"

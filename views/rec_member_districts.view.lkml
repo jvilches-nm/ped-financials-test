@@ -19,6 +19,13 @@ view: rec_member_districts {
   dimension: rec_name {
     type: string
     sql: ${TABLE}.rec_name ;;
+    order_by_field: rec_name_order
+  }
+
+  dimension: rec_name_order {
+    type: number
+    hidden: yes
+    sql: cast(substring(rec_name, 2, 2) as numeric) ;;
   }
 
   measure: count {

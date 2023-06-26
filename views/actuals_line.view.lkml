@@ -26,7 +26,7 @@ view: actuals_line {
   measure: encumbrance {
     type: sum
     description: "Actual encumbrance - amounts promised but not yet actually paid"
-    hidden: yes
+    hidden: no
     value_format: "$#,##0"
     sql: ${TABLE}.Encumbrance ;;
     drill_fields: [ucoa_codes*]

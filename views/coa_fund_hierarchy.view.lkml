@@ -30,11 +30,6 @@ view: coa_fund_hierarchy {
     sql: ${TABLE}.name ;;
   }
 
-  dimension: fund_code_and_name {
-    type: string
-    label: "Fund Code & Name"
-    sql: ${TABLE}.code + ' - ' + ${TABLE}.name ;;
-  }
   dimension: fund_group {
     type: string
     label: "Fund Rollup Name"
@@ -49,8 +44,6 @@ view: coa_fund_hierarchy {
               WHEN left(${fund_code}, 2) = '27' then 'State and Local Grants'
               WHEN left(${fund_code}, 2) = '28' then 'State and Local Grants'
               WHEN left(${fund_code}, 2) = '29' then 'State and Local Grants'
-              WHEN left(${fund_code}, 1) = '3' then 'Capital Outlay'
-              WHEN left(${fund_code}, 1)='4' then 'Debt Service'
               ELSE 'Other' END;;
     drill_fields: [fund_name]
   }

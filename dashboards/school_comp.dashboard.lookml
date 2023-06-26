@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: btkx0TD3ze24WR1alVBR5W
+  preferred_slug: Wp8zK7djZFBiMjEKiO9lTm
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -200,6 +200,7 @@
     pivots: [coa_fund_hierarchy.fund_group]
     sorts: [coa_fund_hierarchy.fund_group, stars_locations.School_name_plain]
     limit: 4
+    column_limit: 50
     show_value_labels: true
     font_size: 15
     charts_across: 4
@@ -209,10 +210,11 @@
       options:
         steps: 5
     series_colors:
-      Federal Grants - actuals_line.amount: "#068993"
+      Federal Grants - actuals_line.amount: "#F15922"
       Debt Service - actuals_line.amount: "#F15922"
       General Fund - actuals_line.amount: "#A8876C"
       State and Local Grants - actuals_line.amount: "#F2C73C"
+      Other - actuals_line.amount: "#9B2030"
     series_labels:
       actuals_line.amount: Spendings
     x_axis_gridlines: false
@@ -460,6 +462,7 @@
     pivots: [coa_fund_hierarchy.fund_group]
     sorts: [coa_fund_hierarchy.fund_group, stars_locations.School_name_plain]
     limit: 4
+    column_limit: 50
     show_value_labels: true
     font_size: 15
     charts_across: 4
@@ -472,6 +475,7 @@
     series_colors:
       General Fund - actuals_revenue_line.amount: "#A8876C"
       State and Local Grants - actuals_revenue_line.amount: "#F2C73C"
+      Other - actuals_revenue_line.amount: "#9B2030"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -707,7 +711,7 @@
     merged_queries:
     - model: ped_public_financials_dev
       explore: actuals_line
-      type: looker_column
+      type: table
       fields: [actuals_line.amount, stars_locations.student_pop, stars_locations.School_name_plain]
       filters:
         coa_fund_hierarchy.fund_group: "-Capital Outlay,-Debt Service"
@@ -717,34 +721,6 @@
       dynamic_fields: [{table_calculation: avg_total_spend, label: Avg total spend,
           expression: "${actuals_line.amount}/${stars_locations.student_pop}", value_format: !!null '',
           value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields: []
     - model: ped_public_financials_dev
       explore: actuals_line
@@ -999,7 +975,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"School Comparison Overview"}],"align":"center"},{"type":"h3","align":"left","children":[{"text":"Overview
       of individual school education finances in comparison with other schools. To
       learn more about the data displayed or to find definitions of terms please click "},{"type":"a","url":"https://openbooks.ped.nm.gov/learn-more/","children":[{"text":"here"}],"id":1686248838730},{"text":"."}],"id":1686248838730},{"type":"p","children":[{"text":""}],"id":1686248858744},{"type":"h3","children":[{"text":"Year-to-date
