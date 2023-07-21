@@ -4,14 +4,13 @@ view: budget_fund {
                   budget_fund.fkbudget,
                   budget.fkbudgetyear,
                   budget.name budget_name,
-                  budget_status.code status_code,
-                  budget_status.name status_name
+                  budget.budgetstatuscode status_code,
+                  budget.budgetstatusname status_name
              FROM budget.BudgetFund  AS budget_fund
              INNER JOIN budget.Budget  AS budget ON budget_fund.fkBudget=budget.pkBudget
-             INNER JOIN budget.BudgetStatus  AS budget_status ON budget.fkBudgetStatus=budget_status.pkBudgetStatus
              INNER JOIN Common.BudgetYear  AS budget_year ON budget.fkBudgetYear=budget_year.pkBudgetYear
              WHERE YEAR(budget_year.StartDate)>=2020
-               AND budget_status.code in ('FB', 'BS') ;;
+               AND budget.budgetstatuscode in ('FB', 'BS') ;;
     datagroup_trigger: ped_public_financials_test_datagroup
     indexes: ["pkbudgetfund", "fkbudget", "fkbudgetyear"]
   }
