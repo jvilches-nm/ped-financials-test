@@ -1,5 +1,5 @@
 view: budget_revenue_line {
-  sql_table_name: dbo.BudgetLine ;;
+  sql_table_name: budget.BudgetLine ;;
   label: "Budgeted Revenue"
 
   set: fund_and_object_codes {

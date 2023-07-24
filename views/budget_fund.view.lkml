@@ -12,7 +12,7 @@ view: budget_fund {
              WHERE YEAR(budget_year.StartDate)>=2020
                AND budget.budgetstatuscode in ('FB', 'BS') ;;
     datagroup_trigger: ped_public_financials_test_datagroup
-    indexes: ["pkbudgetfund", "fkbudget", "fkbudgetyear"]
+    indexes: ["pkbudgetfund", "fkbudget", "fkbudgetyear", "status_code"]
   }
 
   label: "Budget"
