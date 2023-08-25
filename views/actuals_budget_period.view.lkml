@@ -1,12 +1,9 @@
 view: actuals_budget_period {
   derived_table: {
-    sql: select * from (SELECT abp.pkactualsbudgetperiod, fkbudget, b.name budget_name, fkbudgetyear, arp.code reporting_period_code, arp.description reporting_period_description ,
+    sql: select * from (SELECT abp.pkactualsbudgetperiod, fkbudget, b.name budget_name, fkbudgetyear, abp.ActualsReportingPeriodCode reporting_period_code, abp.ActualsReportingPeriodDescription reporting_period_description ,
                 LastApproved = ROW_NUMBER() OVER (PARTITION BY abp.fkBudget
-                                                    ORDER BY arp.Ordinal DESC)
+                                                    ORDER BY abp.ActualsReportingPeriodOrdinal DESC)
          FROM   Actuals.ActualsBudgetPeriod abp
-                INNER JOIN
-                Actuals.ActualsReportingPeriod arp
-                    ON abp.fkActualsReportingPeriod = arp.pkActualsReportingPeriod
                 INNER JOIN
                 Actuals.ActualsStatus astat
                     ON abp.fkActualsStatus = astat.pkActualsStatus
@@ -16,7 +13,7 @@ view: actuals_budget_period {
                 inner join
                 common.budgetyear y
                 on b.fkbudgetyear=y.pkbudgetyear
-         WHERE    arp.Code <> 'YTD'
+         WHERE    abp.ActualsReportingPeriodCode <> 'YTD'
            AND    astat.Code = 'AA'
            AND    YEAR(y.enddate)>=2021) x
        where lastapproved=1
