@@ -44,7 +44,7 @@ view: student_demographics {
   dimension: school_year {
     type: string
     description: "School year"
-    sql: cast(year(${TABLE}.school_year)-1 as varchar) +'-'+cast(year(${TABLE}.school_year) ;;
+    sql: cast(year(${TABLE}.school_year)-1 as varchar) +'-'+cast(year(${TABLE}.school_year) as varchar) ;;
   }
   dimension: special_ed {
     type: string
