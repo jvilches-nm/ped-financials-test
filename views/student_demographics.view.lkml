@@ -70,4 +70,13 @@ view: student_demographics {
   measure: count {
     type: count
   }
+
+  measure: count_districts {
+    type: count_distinct
+    sql: ${TABLE}.district_code ;;
+  }
+  measure: count_schools {
+    type: count_distinct
+    sql: ${TABLE}.district_code+${TABLE}.school_code ;;
+  }
 }
