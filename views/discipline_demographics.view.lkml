@@ -13,7 +13,7 @@ view: discipline_demographics {
     sql: ${TABLE}.discipline_response ;;
   }
   dimension: discipline_response_duration_band {
-    type: number
+    type: string
     description: "Ranges of duration of the discipline response - number of days rounded to the nearest whole day in bands."
     sql: case round(${TABLE}.Discipline_Response_Duration, 0)
               when 0 then '0 - Less than a day'
