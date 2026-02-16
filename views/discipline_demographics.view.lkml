@@ -113,7 +113,7 @@ view: discipline_demographics {
   }
   dimension: student_race_ethnicity_derived {
     type: string
-    sql: ${TABLE}.student_race_ethnicity_derived ;;
+    sql: case when ${TABLE}.student_race_ethnicity_derived ='Multiracial' then 'Multi-Racial' else ${TABLE}.student_race_ethnicity_derived end;;
   }
   measure: count_students {
     type: count_distinct
