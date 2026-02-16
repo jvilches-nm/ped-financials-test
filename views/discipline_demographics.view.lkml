@@ -41,6 +41,7 @@ view: discipline_demographics {
   }
   dimension: district_name {
     type: string
+    map_layer_name: my_neighborhood_layer_v2
     description: "District name"
     sql: ${TABLE}.district_name ;;
   }

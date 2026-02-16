@@ -340,5 +340,10 @@ explore: discipline_demographics {}
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"
   property_key: "name"
+}
+
+  map_layer: my_neighborhood_layer_v2 {
+    file: "/Map_Shapefiles/dist_map_v2.topojson"
+    property_key: "name"
 
 }
