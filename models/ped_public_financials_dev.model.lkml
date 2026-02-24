@@ -336,6 +336,7 @@ explore: aip_submissions  {}
 
 explore: student_demographics  {}
 explore: discipline_demographics {}
+explore: discipline_rollup {}
 
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"

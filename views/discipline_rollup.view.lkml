@@ -40,9 +40,39 @@ view: discipline_rollup {
     sql: ${TABLE}.student_id ;;
   }
 
-   measure: incident_count {
-     description: "Incidents per student"
-     type: sum
-     sql: ${TABLE}.incident_count ;;
-   }
- }
+  dimension: incidents_per_student {
+    type: number
+    sql: ${TABLE}.incident_count ;;
+  }
+
+
+  dimension: incidents_per_student_band {
+    type: string
+    order_by_field: incidents_per_student_band_order
+    sql: case when ${TABLE}.incident_count<=5 then cast(${TABLE}.incident_count as varchar)
+              when ${TABLE}.incident_count>5 and ${TABLE}.incident_count<=10 then '6 to 10'
+              when ${TABLE}.incident_count>10 and ${TABLE}.incident_count<=15 then '11 to 15'
+              else '16+' end;;
+  }
+
+
+  dimension: incidents_per_student_band_order {
+    type: number
+    sql: case when ${TABLE}.incident_count=5 then ${TABLE}.incident_count
+              when ${TABLE}.incident_count>5 and ${TABLE}.incident_count<=10 then 6
+              when ${TABLE}.incident_count>10 and ${TABLE}.incident_count<=15 then 7
+              else 8 end;;
+    }
+
+
+  measure: incident_count {
+    description: "Incidents per student"
+    type: sum
+    sql: ${TABLE}.incident_count ;;
+  }
+  measure: student_count {
+    description: "Students with incidents"
+    type: count
+  }
+
+}
