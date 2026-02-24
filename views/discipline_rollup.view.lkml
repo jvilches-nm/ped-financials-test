@@ -58,7 +58,8 @@ view: discipline_rollup {
 
   dimension: incidents_per_student_band_order {
     type: number
-    sql: case when ${TABLE}.incident_count=5 then ${TABLE}.incident_count
+    hidden:  yes
+    sql: case when ${TABLE}.incident_count<=5 then ${TABLE}.incident_count
               when ${TABLE}.incident_count>5 and ${TABLE}.incident_count<=10 then 6
               when ${TABLE}.incident_count>10 and ${TABLE}.incident_count<=15 then 7
               else 8 end;;
